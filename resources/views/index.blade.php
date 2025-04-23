@@ -43,6 +43,7 @@
     <header id="header" class="header dark-background d-flex flex-column">
         <i class="header-toggle d-xl-none bi bi-list"></i>
 
+
         <div class="profile-img">
             <img src="assets/img/LOGO-CLE2.jpg" alt="" class="img-fluid rounded-circle">
         </div>
@@ -54,11 +55,8 @@
         </a>
 
         <div class="social-links text-center">
-            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            <a href="{{ url('https://www.facebook.com/CLE.IGUALA?rdid=QSf90RtZhNfpjsfQ&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16DGKMpShi%2F#') }}"
+                class="facebook"><i class="bi bi-facebook"></i></a>
         </div>
 
         <nav id="navmenu" class="navmenu">
@@ -76,61 +74,30 @@
     </header>
 
     <main class="main">
-
-        {{--  <section id="hero" class="relative w-full h-screen bg-black text-white overflow-hidden">
-            <!-- Imagen de fondo -->
-            <img src="assets/img/hero-bg.jpg" alt=""
-                style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
-
-            <!-- Logos en la esquina superior derecha -->
-            <div style="position:absolute; top:1rem; right:1rem; display:flex; gap:0.5rem; z-index:10;">
-                <a href="http://www.gob.mx/" target="_blank">
-                    <img src="assets/img/Logo_del_Gobierno_de_México_(2018).png" alt="Logo 1"
-                        style="height:32px; width:auto;">
-                </a>
-                <a href="http://www.gob.mx/sep" target="_blank">
-                    <img src="assets/img/LOGO-SEP.png" alt="Logo 2" style="height:32px; width:auto;">
-                </a>
-                <a href="http://www.tecnm.mx/" target="_blank">
-                    <img src="assets/img/TecNM_logo.png" alt="Logo 3" style="height:32px; width:auto;">
-                </a>
-                <a href="{{ url('/') }}" target="_blank">
-                    <img src="assets/img/LogoIti.png" alt="Logo 4" style="height:32px; width:auto;">
-                </a>
-            </div>
-
-            <!-- Contenido centrado -->
-            <div style="position:relative; z-index:5; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%; text-align:center;">
-                <h2 style="font-size:2.5rem; font-weight:bold;">Coordinación de Lenguas Extranjeras</h2>
-                <p style="margin-top:1rem; font-size:1.25rem;">
-                    <span class="typed" data-typed-items="CLE IGUALA">CLE IGUALA</span>
-                    <span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
-                </p>
-            </div>
-        </section>  --}}
-
-
+        <!-- Logos en la esquina superior derecha -->
+        <div
+            style="position: absolute; top: 1rem; right: 1rem; display: flex; gap: 0.5rem; z-index: 10; align-items: center; flex-wrap: wrap;">
+            <a href="http://www.gob.mx/" target="_blank">
+                <img src="assets/img/Logo_del_Gobierno_de_México_(2018).png" alt="Logo 1"
+                    style="max-height: 10vh; width: auto; height: auto; max-width: 80%;">
+            </a>
+            <a href="http://www.gob.mx/sep" target="_blank">
+                <img src="assets/img/LOGO-SEP.png" alt="Logo 2"
+                    style="max-height: 10vh; width: auto; height: auto; max-width: 100%;">
+            </a>
+            <a href="http://www.tecnm.mx/" target="_blank">
+                <img src="assets/img/TecNM_logo.png" alt="Logo 3"
+                    style="max-height: 10vh; width: auto; height: auto; max-width: 100%;">
+            </a>
+            <a href="{{ url('/') }}" target="_blank">
+                <img src="assets/img/LogoIti.png" alt="Logo 4"
+                    style="max-height: 10vh; width: auto; height: auto; max-width: 100%;">
+            </a>
+        </div>
 
         <!-- Hero Section -->
         <section id="hero" class="hero section dark-background">
             <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
-
-            <!-- Logos en la esquina superior derecha -->
-            <div style="position:absolute; top:1rem; right:1rem; display:flex; flex-wrap:wrap; gap:0.5rem; z-index:10;">
-                <a href="http://www.gob.mx/" target="_blank" style="display:inline-block;">
-                    <img src="assets/img/Logo_del_Gobierno_de_México_(2018).png" alt="Logo 1"
-                        style="height:32px; width:auto;">
-                </a>
-                <a href="http://www.gob.mx/sep" target="_blank" style="display:inline-block;">
-                    <img src="assets/img/LOGO-SEP.png" alt="Logo 2" style="height:32px; width:32px;">
-                </a>
-                <a href="http://www.tecnm.mx/" target="_blank" style="display:inline-block;">
-                    <img src="assets/img/TecNM_logo.png" alt="Logo 3" style="height:32px; width:auto;">
-                </a>
-                <a href="{{ url('/') }}" target="_blank" style="display:inline-block;">
-                    <img src="assets/img/LogoIti.png" alt="Logo 4" style="height:32px; width:auto;">
-                </a>
-            </div>
 
             <!-- Contenido principal del Hero -->
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -202,7 +169,7 @@
             </div>
 
         </section><!-- /Stats Section -->
-        
+
         <!-- Pre-Registro Section -->
         <section id="resume" class="resume section">
 
@@ -626,90 +593,49 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Contacto</h2>
-                <p>Aqui va toda la informacion de Contacto con el CLE o TEC</p>
+                <p>Ponte en contacto con nosotros para obtener más información.</p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-5">
-
-                        <div class="info-wrap">
+                <div class="col-lg-12">
+                    <div class="info-wrap d-flex flex-row flex-wrap" style="height: 100%; gap: 1rem;">
+                        <!-- Columna izquierda -->
+                        <div class="col-lg-4">
                             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
                                     <h3>Address</h3>
                                     <p>A108 Adam Street, New York, NY 535022</p>
                                 </div>
-                            </div><!-- End Info Item -->
-
+                            </div>
                             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                                 <i class="bi bi-telephone flex-shrink-0"></i>
                                 <div>
                                     <h3>Call Us</h3>
                                     <p>+1 5589 55488 55</p>
                                 </div>
-                            </div><!-- End Info Item -->
-
+                            </div>
                             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                                 <i class="bi bi-envelope flex-shrink-0"></i>
                                 <div>
                                     <h3>Email Us</h3>
                                     <p>info@example.com</p>
                                 </div>
-                            </div><!-- End Info Item -->
+                            </div>
+                        </div>
 
+                        <!-- Columna derecha: el mapa -->
+                        <div class="col-lg-7">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
-                                frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen=""
-                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1335.4590607735104!2d-99.52743451477733!3d18.354996539607182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85cc381515555555%3A0x2ca126793d4e0991!2sInstituto%20Tecnologico%20de%20Iguala%20Gro.!5e1!3m2!1ses-419!2smx!4v1745118212976!5m2!1ses-419!2smx"
+                                width="100%" height="100%" style="border:0; min-height: 272px;"
+                                allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
-
-                    <div class="col-lg-7">
-                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-                            data-aos-delay="200">
-                            <div class="row gy-4">
-
-                                <div class="col-md-6">
-                                    <label for="name-field" class="pb-2">Your Name</label>
-                                    <input type="text" name="name" id="name-field" class="form-control"
-                                        required="">
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="email-field" class="pb-2">Your Email</label>
-                                    <input type="email" class="form-control" name="email" id="email-field"
-                                        required="">
-                                </div>
-
-                                <div class="col-md-12">
-                                    <label for="subject-field" class="pb-2">Subject</label>
-                                    <input type="text" class="form-control" name="subject" id="subject-field"
-                                        required="">
-                                </div>
-
-                                <div class="col-md-12">
-                                    <label for="message-field" class="pb-2">Message</label>
-                                    <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                                </div>
-
-                                <div class="col-md-12 text-center">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                                    <button type="submit">Send Message</button>
-                                </div>
-
-                            </div>
-                        </form>
-                    </div><!-- End Contact Form -->
-
                 </div>
-
             </div>
+
 
         </section><!-- /Contact Section -->
 
