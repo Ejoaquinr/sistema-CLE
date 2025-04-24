@@ -45,7 +45,7 @@
 
 
         <div class="profile-img">
-            <img src="assets/img/LOGO-CLE2.jpg" alt="" class="img-fluid rounded-circle">
+            <img src="assets/img/LOGO-CLE2.png" alt="" class="img-fluid rounded-circle">
         </div>
 
         <a href="index.html" class="logo d-flex align-items-center justify-content-center">
