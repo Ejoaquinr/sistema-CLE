@@ -48,7 +48,7 @@
             <img src="assets/img/LOGO-CLE2.png" alt="" class="img-fluid rounded-circle">
         </div>
 
-        <a href="index.html" class="logo d-flex align-items-center justify-content-center">
+        <a href="{{url('/')}}" class="logo d-flex align-items-center justify-content-center">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/LOGO-CLE.png" alt=""> -->
             <h1 class="sitename">CLE ITI</h1>
