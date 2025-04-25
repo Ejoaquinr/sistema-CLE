@@ -9,12 +9,15 @@
     <meta content="" name="keywords">
 
     <!-- Fonts -->
-    <link href="{{url('https://fonts.googleapis.com')}}" rel="preconnect">
-    <link href="{{url('https://fonts.gstatic.com')}}" rel="preconnect" crossorigin>
+    <link href="{{ url('https://fonts.googleapis.com') }}" rel="preconnect">
+    <link href="{{ url('https://fonts.gstatic.com') }}" rel="preconnect" crossorigin>
     <link
-        href="{{url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')}}"
+        href="{{ url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap') }}"
         rel="stylesheet">
 
+    <!-- Sweet Alert2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <!-- Vendor CSS Files -->
     <link href="{{ url('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
@@ -24,6 +27,8 @@
 
     <!-- Main CSS File -->
     <link href="{{ url('assets/css/main.css') }}" rel="stylesheet">
+
+
 
     <style>
         body {
@@ -40,7 +45,7 @@
         <i class="header-toggle d-xl-none bi bi-list"></i>
 
         <div class="profile-img">
-            <img src="{{url('assets/img/LOGO-CLE2.png')}}" alt="" class="img-fluid rounded-circle">
+            <img src="{{ url('assets/img/LOGO-CLE2.png') }}" alt="" class="img-fluid rounded-circle">
         </div>
 
         <a href="{{ url('/admin') }}" class="logo d-flex align-items-center justify-content-center">
@@ -69,10 +74,24 @@
 
     </header>
 
+    @if (($Message = Session::get('mensaje')) && ($icono = Session::get('icono')))
+        <script>
+            Swal.fire({
+                position: "top",
+                icon: "{{ $icono }}",
+                title: "{{ $Message }}",
+                showConfirmButton: false,
+                timer: 4500
+            });
+        </script>
+    @endif
+
     {{-- Contenido dinámico --}}
     <main>
         @yield('content')
     </main>
+
+
 
 </body>
 

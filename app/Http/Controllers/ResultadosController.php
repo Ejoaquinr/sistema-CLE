@@ -12,23 +12,45 @@ class ResultadosController extends Controller
      */
     public function index()
     {
-        //
+        return view('index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        //
-    }
+    public function create() {}
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'correo_electronico' => 'required|max:100',
+            'correo_institucional' => 'required|max:100',
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'no_control' => 'required',
+            'no_telefono' => 'required',
+            'carrera' => 'required',
+            'nivel' => 'required',
+            'turno' => 'required',
+        ]);
+        $resultados = new Resultados();
+        $resultados->correo_electronico = $request->correo_electronico;
+        $resultados->correo_institucional = $request->correo_institucional;
+        $resultados->nombres = $request->nombres;
+        $resultados->apellidos = $request->apellidos;
+        $resultados->no_control = $request->no_control;
+        $resultados->no_telefono = $request->no_telefono;
+        $resultados->carrera = $request->carrera;
+        $resultados->nivel = $request->nivel;
+        $resultados->turno = $request->turno;
+        $resultados->save();
+
+        return redirect()->back()
+            ->with('mensaje', 'Se registraron los datos CORRECTAMENTE')
+            ->with('icono', 'success');
     }
 
     /**

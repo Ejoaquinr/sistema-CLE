@@ -26,6 +26,9 @@
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+    <!-- Sweet Alert2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet">
 
@@ -48,7 +51,7 @@
             <img src="assets/img/LOGO-CLE2.png" alt="" class="img-fluid rounded-circle">
         </div>
 
-        <a href="{{url('/')}}" class="logo d-flex align-items-center justify-content-center">
+        <a href="{{ url('/') }}" class="logo d-flex align-items-center justify-content-center">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/LOGO-CLE.png" alt=""> -->
             <h1 class="sitename">CLE ITI</h1>
@@ -194,49 +197,43 @@
                 <div class="row">
 
                     <div class="col-lg-12">
-                        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up"
-                            data-aos-delay="200">
+                        <form action="{{ url('/admin') }}" method="POST" data-aos="fade-up" data-aos-delay="200">
+                            @csrf
                             <div class="row gy-4">
-
                                 <div class="col-md-6">
                                     <label for="name-field" class="pb-2">Correo Electronico*</label>
-                                    <input type="text" name="name" id="name-field" class="form-control"
-                                        required="">
+                                    <input type="text" name="correo_electronico" id="name-field"
+                                        class="form-control" required="">
                                 </div>
 
                                 <div class="col-md-6">
                                     <label for="email-field" class="pb-2">Correo institucional*</label>
-                                    <input type="email" class="form-control" name="email" id="email-field"
-                                        required="">
+                                    <input type="email" class="form-control" name="correo_institucional" required>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label for="subject-field" class="pb-2">Nombre(s)*</label>
-                                    <input type="text" class="form-control" name="subject" id="subject-field"
-                                        required="">
+                                    <input type="text" class="form-control" name="nombres" required>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label for="subject-field" class="pb-2">Apellido(s)*</label>
-                                    <input type="text" class="form-control" name="subject" id="subject-field"
-                                        required="">
+                                    <input type="text" class="form-control" name="apellidos" required>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label for="subject-field" class="pb-2">Numero de Control*</label>
-                                    <input type="text" class="form-control" name="subject" id="subject-field"
-                                        required="">
+                                    <input type="text" class="form-control" name="no_control" required>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label for="subject-field" class="pb-2">Numero de Telefono*</label>
-                                    <input type="text" class="form-control" name="subject" id="subject-field"
-                                        required="">
+                                    <input type="text" class="form-control" name="no_telefono" required>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label for="subject-field" class="form-label">Selecciona tu carrera *</label>
-                                    <select required class="form-select">
+                                    <select required name="carrera" class="form-select">
                                         <option disabled selected>Selecciona una carrera</option>
                                         <option>Ingeniería en Gestión Empresarial</option>
                                         <option>Ingeniería en Sistemas Computacionales</option>
@@ -248,7 +245,7 @@
 
                                 <div class="col-md-6">
                                     <label for="subject-field" class="pb-2">Nivel a ingresar *</label> <br>
-                                    <select required class="form-select">
+                                    <select required name="nivel" class="form-select">
                                         <option disabled selected>Selecciona un nivel</option>
                                         <option>Primero</option>
                                         <option>Segundo</option>
@@ -264,33 +261,20 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="subject-field" class="form-label">Turno Preferible*</label>
-                                    <select required class="form-select">
+                                    <select required name="turno" class="form-select">
                                         <option disabled selected>Selecciona el Turno</option>
                                         <option>Matutino</option>
                                         <option>Vespertino</option>
                                         <option>Sabatino</option>
                                     </select>
                                 </div>
-
-
                                 <div class="col-md-12 text-center">
-                                    <div class="loading">Loading</div>
-                                    <div class="error-message"></div>
-                                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
                                     <button type="submit" class="btn btn-primary">Enviar</button>
                                 </div>
-
                             </div>
                         </form>
                     </div><!-- End Contact Form -->
                 </div>
-            </div>
-            </div>
-
-
-            </div>
-
             </div>
 
         </section><!-- /Pre-Registro Section -->
@@ -680,6 +664,18 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    @if (($Message = Session::get('mensaje')) && ($icono = Session::get('icono')))
+        <script>
+            Swal.fire({
+                position: "top",
+                icon: "{{ $icono }}",
+                title: "{{ $Message }}",
+                showConfirmButton: false,
+                timer: 4500
+            });
+        </script>
+    @endif
 
 </body>
 
