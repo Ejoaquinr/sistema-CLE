@@ -232,7 +232,7 @@
                     </div>
                     <div class="card-body">
                         <div class="container mt-5 mb-5">
-                            <h3 class="text-center mb-4">Pacientes Registrados por Mes</h3>
+                            <h3 class="text-center mb-4">Datos Registrados por Nivel</h3>
                             <canvas id="graficaNiveles" height="100"></canvas>
                         </div>
                     </div>
