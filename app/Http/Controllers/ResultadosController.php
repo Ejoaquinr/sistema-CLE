@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Resultados;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ResultadosController extends Controller
 {
@@ -13,20 +14,21 @@ class ResultadosController extends Controller
     public function index()
     {
         $resultados = Resultados::all();
+        $niveles = ['Primero', 'Segundo', 'Tercero', 'Cuarto', 'Quinto', 'Sexto', 'Séptimo', 'Octavo', 'Noveno', 'Décimo'];
 
-        $niveles = Resultados::select('nivel')
-            ->selectRaw('count(*) as total')
+        $conteos = DB::table('resultados')
+            ->select('nivel', DB::raw('count(*) as total'))
+            ->whereIn('nivel', $niveles)
             ->groupBy('nivel')
             ->pluck('total', 'nivel');
-    
-        $turnos = Resultados::select('turno')
-            ->selectRaw('count(*) as total')
-            ->groupBy('turno')
-            ->pluck('total', 'turno');
-    
-        return view('admin.resultados', compact('resultados', 'niveles', 'turnos'));
 
-    
+        // Asegurar que todos los niveles estén presentes (incluso si su conteo es 0)
+        $datosGrafica = [];
+        foreach ($niveles as $nivel) {
+            $datosGrafica[] = $conteos[$nivel] ?? 0;
+        }
+
+        return view('admin.resultados', compact('resultados', 'niveles', 'datosGrafica'));
     }
 
     /**
@@ -70,10 +72,7 @@ class ResultadosController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Resultados $resultados)
-    {
-     
-    }
+    public function show(Resultados $resultados) {}
 
     /**
      * Show the form for editing the specified resource.
