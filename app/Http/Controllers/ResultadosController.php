@@ -12,7 +12,21 @@ class ResultadosController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $resultados = Resultados::all();
+
+        $niveles = Resultados::select('nivel')
+            ->selectRaw('count(*) as total')
+            ->groupBy('nivel')
+            ->pluck('total', 'nivel');
+    
+        $turnos = Resultados::select('turno')
+            ->selectRaw('count(*) as total')
+            ->groupBy('turno')
+            ->pluck('total', 'turno');
+    
+        return view('admin.resultados', compact('resultados', 'niveles', 'turnos'));
+
+    
     }
 
     /**
@@ -58,7 +72,7 @@ class ResultadosController extends Controller
      */
     public function show(Resultados $resultados)
     {
-        //
+     
     }
 
     /**
