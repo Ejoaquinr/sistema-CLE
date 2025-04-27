@@ -14,22 +14,46 @@ class ResultadosController extends Controller
     public function index()
     {
         $resultados = Resultados::all();
-        $niveles = ['Primero', 'Segundo', 'Tercero', 'Cuarto', 'Quinto', 'Sexto', 'Séptimo', 'Octavo', 'Noveno', 'Décimo'];
-
+    
+        $niveles = ['Nivel 1', 'Nivel 2', 'Nivel 3', 'Nivel 4', 'Nivel 5', 'Nivel 6', 'Nivel 7', 'Nivel 8', 'Nivel 9', 'Nivel 10'];
+        $niveles2 = ['Primero','Segundo', 'Tercero','Cuarto','Quinto','Sexto','Séptimo','Octavo','Noveno','Décimo'];
+    
+        // Conteo general por nivel
         $conteos = DB::table('resultados')
             ->select('nivel', DB::raw('count(*) as total'))
-            ->whereIn('nivel', $niveles)
+            ->whereIn('nivel', $niveles2)
             ->groupBy('nivel')
             ->pluck('total', 'nivel');
-
-        // Asegurar que todos los niveles estén presentes (incluso si su conteo es 0)
+    
         $datosGrafica = [];
-        foreach ($niveles as $nivel) {
+        foreach ($niveles2 as $nivel) {
             $datosGrafica[] = $conteos[$nivel] ?? 0;
         }
-
-        return view('admin.resultados', compact('resultados', 'niveles', 'datosGrafica'));
+    
+        // Conteo por turno (matutino, vespertino, sabatino) separados
+        $turnos = ['Matutino', 'Vespertino', 'Sabatino'];
+    
+        $datosTurnos = [];
+    
+        foreach ($turnos as $turno) {
+            $conteoTurno = DB::table('resultados')
+                ->select('nivel', DB::raw('count(*) as total'))
+                ->where('turno', $turno)
+                ->whereIn('nivel', $niveles2)
+                ->groupBy('nivel')
+                ->pluck('total', 'nivel');
+    
+            $datosPorNivel = [];
+            foreach ($niveles2 as $nivel) {
+                $datosPorNivel[] = $conteoTurno[$nivel] ?? 0;
+            }
+    
+            $datosTurnos[$turno] = $datosPorNivel;
+        }
+    
+        return view('admin.resultados', compact('resultados', 'niveles', 'datosGrafica', 'datosTurnos'));
     }
+    
 
     /**
      * Show the form for creating a new resource.

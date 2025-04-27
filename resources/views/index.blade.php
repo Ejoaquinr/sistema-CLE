@@ -202,8 +202,11 @@
                             <div class="row gy-4">
                                 <div class="col-md-6">
                                     <label for="name-field" class="pb-2">Correo Electronico*</label>
-                                    <input type="text" name="correo_electronico" id="name-field"
+                                    <input type="text" name="correo_electronico" id="correo"
                                         class="form-control" required="">
+                                    @error('correo_electronico')
+                                        <small style="color:red">{{ $message }}</small>
+                                    @enderror
                                 </div>
 
                                 <div class="col-md-6">
@@ -233,7 +236,7 @@
 
                                 <div class="col-md-6">
                                     <label for="subject-field" class="form-label">Selecciona tu carrera *</label>
-                                    <select required name="carrera" class="form-select">
+                                    <select name="carrera" class="form-select" required>
                                         <option disabled selected>Selecciona una carrera</option>
                                         <option>Ingeniería en Gestión Empresarial</option>
                                         <option>Ingeniería en Sistemas Computacionales</option>
@@ -245,7 +248,7 @@
 
                                 <div class="col-md-6">
                                     <label for="subject-field" class="pb-2">Nivel a ingresar *</label> <br>
-                                    <select required name="nivel" class="form-select">
+                                    <select name="nivel" class="form-select" required>
                                         <option disabled selected>Selecciona un nivel</option>
                                         <option>Primero</option>
                                         <option>Segundo</option>
@@ -261,7 +264,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <label for="subject-field" class="form-label">Turno Preferible*</label>
-                                    <select required name="turno" class="form-select">
+                                    <select name="turno" class="form-select" required>
                                         <option disabled selected>Selecciona el Turno</option>
                                         <option>Matutino</option>
                                         <option>Vespertino</option>
