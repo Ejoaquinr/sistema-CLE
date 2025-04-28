@@ -161,8 +161,8 @@
     <h3>Welcome Back!</h3>
     <p>Please verify your identity to access the CLE administration</p>
     
-    <img src="assets/img/LOGO-CLE2.jpg" alt="logo del CLE" style="max-width: 250px; margin-top: 40px;">
-</div>
+    <img src="assets/img/LOGO-CLE2.png" alt="logo del CLE" style="max-width: 250px; margin-top: 40px;">
+</div> 
 
 
 <!-- Font Awesome CDN for icons -->
