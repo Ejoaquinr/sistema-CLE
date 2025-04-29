@@ -72,9 +72,12 @@ class ResultadosController extends Controller
             'apellidos' => 'required',
             'no_control' => 'required',
             'no_telefono' => 'required',
-            'carrera' => 'required',
-            'nivel' => 'required',
-            'turno' => 'required',
+            'carrera' => 'required|not_in:Selecciona una carrera',
+            'nivel' => 'required|not_in:Selecciona una carrera',
+            'turno' => 'required|not_in:Selecciona una carrera',
+          
+
+            
         ]);
         $resultados = new Resultados();
         $resultados->correo_electronico = $request->correo_electronico;
