@@ -56,10 +56,13 @@
             <!-- <img src="assets/img/LOGO-CLE.png" alt=""> -->
             <h1 class="sitename">CLE ITI</h1>
         </a>
-
+ 
         <div class="social-links text-center">
-            <a href="{{ url('https://www.facebook.com/CLE.IGUALA?rdid=QSf90RtZhNfpjsfQ&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16DGKMpShi%2F#') }}"
-                class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.facebook.com/CLE.IGUALA?rdid=QSf90RtZhNfpjsfQ&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16DGKMpShi%2F#"
+            class="facebook"
+            target="_blank"> <i class="bi bi-facebook"></i>
+        </a>
+
         </div>
 
         <nav id="navmenu" class="navmenu">
