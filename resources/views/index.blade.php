@@ -174,7 +174,56 @@
         </section><!-- /Stats Section -->
 
         <!-- Pre-Registro Section -->
+           <!--Esto es para la advertencia en la vista del pre-r.  -->
         <section id="resume" class="resume section">
+
+        @if ($errors->any())
+    <div class="alert alert-warning">
+        <strong>Atención:</strong> Por favor completa todos los campos obligatorios.
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+@if (session('mensaje') && !$errors->any())
+    <div class="alert alert-success">
+        {{ session('mensaje') }}
+    </div>
+@endif
+
+<!-- SweetAlert2 de error para volver a la vista del pre-r. -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if ($errors->any())
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'Faltan campos por llenar',
+            html: `
+                <ul style="text-align:left;">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            `,
+            confirmButtonText: 'Volver a completar',
+        });
+    </script>
+@endif
+
+@if (session('mensaje'))
+    <script>
+        Swal.fire({
+            icon: '{{ session('icono', 'success') }}',
+            title: '{{ session('mensaje') }}',
+            confirmButtonText: 'Aceptar',
+        });
+    </script>
+@endif
+
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
