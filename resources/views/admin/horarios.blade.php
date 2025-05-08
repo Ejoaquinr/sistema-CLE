@@ -22,7 +22,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Grupo</th>
-                                        <th>Listas Asociadas</th>
+                                        <th>Listas Asociadas Gabo</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -16,3 +16,7 @@ Route::get('/admin/horarios', [App\Http\Controllers\HomeController::class, 'hora
 
 Route::post('/admin', [App\Http\Controllers\ResultadosController::class, 'store'])
     ->name('admin.store');
+
+    // Cambios use App\Http\Controllers\HorarioController;
+
+// Route::get('/admin/horarios', [HorarioController::class, 'index'])->name('admin.horarios');
