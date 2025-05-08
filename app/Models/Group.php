@@ -9,6 +9,7 @@ class Group extends Model
     // Relacionar si tiene muchas listas 
 
 public function listas(){
+    //checamos la lista
     return $this->hasMany(Lista::class);
     
 }    
