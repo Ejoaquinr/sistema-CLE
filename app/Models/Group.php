@@ -8,9 +8,18 @@ class Group extends Model
 {
     // Relacionar si tiene muchas listas 
 
-public function listas(){
-    //checamos la lista
-    return $this->hasMany(Lista::class);
-    
-}    
+    protected $table = 'resultados'; // nombre de la tabla existente
+
+    protected $fillable = [
+        'correo_electronico',
+        'correo_institucional',
+        'nombres',
+        'apellidos',
+        'no_control',
+        'no_telefono',
+        'carrera',
+        'nivel',
+        'turno'
+    ];
 }
+
