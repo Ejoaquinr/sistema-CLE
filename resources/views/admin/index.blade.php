@@ -1,22 +1,35 @@
 @extends('layouts.admin')
-@section('title', 'Inicio')
+@section('title', 'Panel de Administración')
 @section('content')
-    <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; background: linear-gradient(to right, #44337a, #1a202c); padding-top: 80px;">
-        <div style="text-align: center; width: 100%; max-width: 600px;">
-            <h1 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1rem; color: white;">Bienvenida de nuevo, maestra</h1>
-            <p style="font-size: 1.125rem; color: white;">
-                Presione el botón si desea abrir el formulario de este nuevo periodo.
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-900 to-gray-900 px-4">
+        <div class="text-center w-full max-w-xl">
+            {{-- Mensaje de sesión --}}
+            @if(session('mensaje'))
+                <div class="bg-blue-100 border border-blue-400 text-blue-800 px-4 py-3 rounded shadow-md mb-6">
+                    <span class="block font-semibold">{{ session('mensaje') }}</span>
+                </div>
+            @endif
+            {{-- Título y descripción --}}
+            <h1 class="text-4xl font-bold text-white mb-4">Bienvenida de nuevo, maestra</h1>
+            <p class="text-lg text-white mb-6">
+                Presione el botón para controlar la disponibilidad del formulario de este nuevo periodo.
             </p>
-        </div>
-        
-        <!-- Espacio fijo de 200px -->
-        <div style="height: 200px;"></div>
-        
-        <div style="text-align: center; width: 100%; max-width: 600px;">
-            <a href="#" 
-               style="background-color: #2563eb; color: white; font-weight: 500; padding: 0.5rem 1rem; border: 1px solid #1d4ed8; border-radius: 0.25rem; display: inline-block; font-size: 0.875rem;">
-                Abrir formulario
-            </a>
+            {{-- Estado del formulario --}}
+            <div class="mb-6 text-white text-lg">
+                <strong>Estado actual:</strong>
+                @if($form_enabled == '1')
+                    <span class="ml-2 text-green-400">Formulario habilitado</span>
+                @else
+                    <span class="ml-2 text-red-400">Formulario deshabilitado</span>
+                @endif
+            </div>
+            {{-- Botón de acción centrado con buen espaciado superior --}}
+            <div class="w-full flex justify-center mt-12">
+                <a href="{{ route('admin.toggle-form') }}"
+                   class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded shadow transition duration-300">
+                    {{ $form_enabled == '1' ? 'Deshabilitar formulario' : 'Habilitar formulario' }}
+                </a>
+            </div>
         </div>
     </div>
 @endsection
