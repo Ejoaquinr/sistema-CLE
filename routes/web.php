@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('index');
@@ -18,6 +19,9 @@ Route::get('/admin/horarios', [App\Http\Controllers\HorarioController::class, 'i
 
 Route::post('/admin', [App\Http\Controllers\ResultadosController::class, 'store'])
     ->name('admin.store');
+
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin/toggle-form', [AdminController::class, 'toggleForm'])->name('admin.toggle-form');
 
     // Cambios use App\Http\Controllers\HorarioController;
 

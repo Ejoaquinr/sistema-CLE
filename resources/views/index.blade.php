@@ -174,58 +174,55 @@
         </section><!-- /Stats Section -->
 
         <!-- Pre-Registro Section -->
-        <!--Esto es para la advertencia en la vista del pre-r.  -->
+           <!--Esto es para la advertencia en la vista del pre-r.  -->
         <section id="resume" class="resume section">
 
-            @if ($errors->any())
-            <div class="alert alert-warning">
-                <strong>Atención:</strong> Por favor completa todos los campos obligatorios.
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
+        @if ($errors->any())
+    <div class="alert alert-warning">
+        <strong>Atención:</strong> Por favor completa todos los campos obligatorios.
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
-            @if (session('mensaje') && !$errors->any())
-            <div class="alert alert-success">
-                {{ session('mensaje') }}
-            </div>
-            @endif
+@if (session('mensaje') && !$errors->any())
+    <div class="alert alert-success">
+        {{ session('mensaje') }}
+    </div>
+@endif
 
-            <!-- SweetAlert2 de error para volver a la vista del pre-r. -->
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- SweetAlert2 de error para volver a la vista del pre-r. -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-            @if ($errors->any())
-            <script>
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Faltan campos por llenar',
-                    html: `
+@if ($errors->any())
+    <script>
+        Swal.fire({
+            icon: 'warning',
+            title: 'Faltan campos por llenar',
+            html: `
                 <ul style="text-align:left;">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
             `,
-                    confirmButtonText: 'Volver a completar',
-                });
-            </script>
-            @endif
+            confirmButtonText: 'Volver a completar',
+        });
+    </script>
+@endif
 
-            @if (session('mensaje'))
-            <script>
-                Swal.fire({
-                    icon: '{{ session('
-                    icono ', '
-                    success ') }}',
-                    title: '{{ session('
-                    mensaje ') }}',
-                    confirmButtonText: 'Aceptar',
-                });
-            </script>
-            @endif
+@if (session('mensaje'))
+    <script>
+        Swal.fire({
+            icon: '{{ session('icono', 'success') }}',
+            title: '{{ session('mensaje') }}',
+            confirmButtonText: 'Aceptar',
+        });
+    </script>
+@endif
 
 
             <!-- Section Title -->
@@ -331,6 +328,20 @@
                     </div><!-- End Contact Form -->
                 </div>
             </div>
+@else
+        <!-- Section Title cuando el formulario está deshabilitado -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>PRE-REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA</h2>
+            <div class="alert alert-info text-center" role="alert">
+                <p class="mb-0 text-lg">
+                    <i class="bi bi-info-circle me-2"></i>
+                    El periodo de pre-registro no está disponible en este momento. Por favor, vuelve más tarde.
+                </p>
+            </div>
+        </div>
+    @endif
+</section><!-- /Pre-Registro Section -->
+
 
         </section><!-- /Pre-Registro Section -->
 
