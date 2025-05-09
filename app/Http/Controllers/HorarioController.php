@@ -94,6 +94,7 @@ class HorarioController extends Controller
             ->with('mensaje', 'Se registraron los datos CORRECTAMENTE')
             ->with('icono', 'success');
     }
+    //hola Ñabo
 
 
 }
