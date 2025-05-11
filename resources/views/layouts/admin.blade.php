@@ -70,10 +70,10 @@
         <nav id="navmenu" class="navmenu">
             <ul>
                 <li><a href="{{ url('/admin') }}" class="active"><i class="bi bi-house navicon"></i>Inicio</a></li>
-                <li><a href="{{ url('/admin/resultados') }}"><i class="bi bi-info-circle navicon"></i> Resultado de
-                        PreRegistro</a></li>
-                <li><a href="{{ url('/admin/horarios') }}"><i class="bi bi-file-earmark-text navicon"></i> Horarios</a>
-                </li>
+                <li><a href="{{ url('/admin/resultados') }}"><i class="bi bi-info-circle navicon"></i> Resultado de PreRegistro</a></li>
+                <li><a href="{{ url('/admin/horarios') }}"><i class="bi bi-file-earmark-text navicon"></i> Horarios</a> </li>
+                 <!-- Modificacion 11/05/2025 Agregacion de otro modo en la barra lateral-->
+                <li><a href="{{ url('/admin/grupos') }}"><i class="bi bi-people navicon"></i> Grupos</a></li>
                 <li>
                     <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
                         @csrf
