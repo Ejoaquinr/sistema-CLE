@@ -197,7 +197,7 @@
 <!-- SweetAlert2 de error para volver a la vista del pre-r. -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-@if ($errors->any())
+           @if ($errors->any())
     <script>
         Swal.fire({
             icon: 'warning',
@@ -212,9 +212,9 @@
             confirmButtonText: 'Volver a completar',
         });
     </script>
-@endif
+           @endif
 
-@if (session('mensaje'))
+        @if (session('mensaje'))
     <script>
         Swal.fire({
             icon: '{{ session('icono', 'success') }}',
@@ -222,7 +222,7 @@
             confirmButtonText: 'Aceptar',
         });
     </script>
-@endif
+              @endif
 
 
             <!-- Section Title -->
