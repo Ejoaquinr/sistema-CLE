@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\GrupoController;
+use App\Http\Controllers\ResultadosController;
+use App\Http\Controllers\GrupoConfirmadoController;
+use App\Http\Controllers\HorarioController;
 
 Route::get('/', function () {
     return view('index');
@@ -30,7 +33,10 @@ Route::get('/admin/toggle-form', [AdminController::class, 'toggleForm'])->name('
 
 //
 
-Route::get('/resultados/{id}/editar', [ResultadoController::class, 'edit'])->name('ruta.editar');
-Route::delete('/resultados/{id}', [ResultadoController::class, 'destroy'])->name('ruta.eliminar');
+Route::get('/horarios/{id}/editar', [HorarioController::class, 'edit'])->name('ruta.editar');
+Route::delete('/horarios/{id}', [HorarioController::class, 'destroy'])->name('ruta.eliminar');
 
 Route::get('/admin/grupos', [GrupoController::class, 'index'])->name('admin.grupos');
+
+Route::get('/admin/confirmar-grupo/{id}/{grupo}', [GrupoConfirmadoController::class, 'confirmarGrupo'])->name('grupo.confirmar');
+

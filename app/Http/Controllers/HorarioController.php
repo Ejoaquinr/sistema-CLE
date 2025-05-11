@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Group;
 use Illuminate\Support\Facades\DB;
 
+use App\Models\Resultados;
+
 
 class HorarioController extends Controller
 {
