@@ -20,14 +20,17 @@
                                 <td style="text-align: center">Nro</td>
                                 <td style="text-align: center">Nombre(s)</th>
                                 <td style="text-align: center">Apellidos</th>
+                                
+                                 <!-- Se oculta lo que es el correo electronico y el correo 
                                 <td style="text-align: center">Correo Electrónico</th>
                                 <td style="text-align: center">Correo Institucional</th>
+                                -->
                                 <td style="text-align: center">No. Control</th>
                                 <td style="text-align: center">No. Teléfono</th>
-                                <td style="text-align: center">Carrera</th>
+                               <!-- <td style="text-align: center">Carrera</th>-->
                                 <td style="text-align: center">Nivel</th>
                                 <td style="text-align: center">Turno</th>
-                                <td style="text-align: center">Fecha de Registro</th>
+                                <!--<td style="text-align: center">Fecha de Registro</th>-->
                             </tr>
                         </thead>
                         <tbody>
@@ -37,14 +40,20 @@
                                     <td style="text-align: center">{{ $contador++ }}</td>
                                     <td>{{ $resultado->nombres }}</td>
                                     <td>{{ $resultado->apellidos }}</td>
+                                    <!-- Se oculta lo que es el correo electronico y el correo 
+                                <td style="text-align: center">Correo Electrónico</th>
+                                <td style="text-align: center">Correo Institucional</th>
+                                
                                     <td>{{ $resultado->correo_electronico }}</td>
                                     <td>{{ $resultado->correo_institucional }}</td>
+                                    -->
                                     <td>{{ $resultado->no_control }}</td>
                                     <td>{{ $resultado->no_telefono }}</td>
-                                    <td>{{ $resultado->carrera }}</td>
+
+                                   <!-- <td>{{ $resultado->carrera }}</td>-->
                                     <td>{{ $resultado->nivel }}</td>
                                     <td>{{ $resultado->turno }}</td>
-                                    <td>{{ $resultado->created_at->format('d/m/Y H:i') }}</td>
+                                    <!--<td>{{ $resultado->created_at->format('d/m/Y H:i') }}</td>-->
                                 </tr>
                             @endforeach
                         </tbody>
