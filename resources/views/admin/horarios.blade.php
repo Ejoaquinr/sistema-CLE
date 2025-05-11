@@ -31,6 +31,8 @@
                                 <td style="text-align: center">Nivel</th>
                                 <td style="text-align: center">Turno</th>
                                 <!--<td style="text-align: center">Fecha de Registro</th>-->
+                                 <!-- Actualizacion botones 11/05/2025-->
+                                <td style="text-align: center">Acciones</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,6 +56,18 @@
                                     <td>{{ $resultado->nivel }}</td>
                                     <td>{{ $resultado->turno }}</td>
                                     <!--<td>{{ $resultado->created_at->format('d/m/Y H:i') }}</td>-->
+                                    <td style="text-align: center">
+    <a href="{{ route('ruta.editar', $resultado->id) }}" class="btn btn-warning btn-sm">
+        <i class="bi bi-pencil-square"></i> Editar
+    </a>
+    <form action="{{ route('ruta.eliminar', $resultado->id) }}" method="POST" style="display:inline;">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de eliminar este registro?')">
+            <i class="bi bi-trash"></i> Eliminar
+        </button>
+    </form>
+</td>
                                 </tr>
                             @endforeach
                         </tbody>

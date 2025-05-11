@@ -26,3 +26,8 @@ Route::get('/admin/toggle-form', [AdminController::class, 'toggleForm'])->name('
     // Cambios use App\Http\Controllers\HorarioController;
 
 // Route::get('/admin/horarios', [HorarioController::class, 'index'])->name('admin.horarios');
+
+//
+
+Route::get('/resultados/{id}/editar', [ResultadoController::class, 'edit'])->name('ruta.editar');
+Route::delete('/resultados/{id}', [ResultadoController::class, 'destroy'])->name('ruta.eliminar');
