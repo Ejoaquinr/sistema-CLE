@@ -95,6 +95,9 @@ class HorarioController extends Controller
             ->with('icono', 'success');
     }
     //hola Ñabo
+    // Metodo Edit
+    public function edit($id){
 
+    }
 
 }
