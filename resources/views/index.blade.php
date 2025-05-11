@@ -222,10 +222,9 @@
             confirmButtonText: 'Aceptar',
         });
     </script>
-     <!-- modificacion -->
 @endif
 
-@if (session('mensaje'))
+
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>PRE- REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA </h2>
