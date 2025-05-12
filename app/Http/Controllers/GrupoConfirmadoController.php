@@ -15,7 +15,8 @@ class GrupoConfirmadoController extends Controller
     {
        
         // Si el modelo Grupo está bien definido y la base de datos está conectada
-        $grupos = Group::all();  // Obtener todos los grupos
+        // $grupos = Group::all();  // Obtener todos los grupos
+        $grupos = Group::orderBy('turno')->get()->groupBy('turno');
 
         return view('admin.grupos', compact('grupos'));  // Pasar los datos a la vista
     }

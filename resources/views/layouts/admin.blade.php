@@ -124,6 +124,10 @@
     <script src="{{ url('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
     <!-- Bootstrap Bundle con Popper (incluye ambos) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-PwF4Ld8/5d3uzV7+...tuHash..." crossorigin="anonymous"></script>
+<!-- Agregar en el <head> de tu layout principal -->
+
+
+<!-- Agregar antes del cierre de </body> -->
 
 
     <!-- AdminLTE App -->
