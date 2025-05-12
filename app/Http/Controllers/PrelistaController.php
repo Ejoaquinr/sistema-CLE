@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Group;
+use App\Models\Prelista;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Resultados;
 
 
-class HorarioController extends Controller
+class PrelistaController extends Controller
 {
     // modificacion 08/05/2025
     public function index()
     {
-        $resultados = Group::all();
+        $resultados = Resultados::all();
     
         $niveles = ['Nivel 1', 'Nivel 2', 'Nivel 3', 'Nivel 4', 'Nivel 5', 'Nivel 6', 'Nivel 7', 'Nivel 8', 'Nivel 9', 'Nivel 10'];
         $niveles2 = ['Primero','Segundo', 'Tercero','Cuarto','Quinto','Sexto','Séptimo','Octavo','Noveno','Décimo'];
@@ -52,7 +53,7 @@ class HorarioController extends Controller
             $datosTurnos[$turno] = $datosPorNivel;
         }
     
-        return view('admin.horarios', compact('resultados', 'niveles', 'datosGrafica', 'datosTurnos'));
+        return view('admin.prelista', compact('resultados', 'niveles', 'datosGrafica', 'datosTurnos'));
     }
     
 
@@ -81,8 +82,8 @@ class HorarioController extends Controller
             
         ]);
         $resultados = new Resultados();
-        $resultados->correo_electronico = $request->correo_electronico;
-        $resultados->correo_institucional = $request->correo_institucional;
+        // $resultados->correo_electronico = $request->correo_electronico;
+        // $resultados->correo_institucional = $request->correo_institucional;
         $resultados->nombres = $request->nombres;
         $resultados->apellidos = $request->apellidos;
         $resultados->no_control = $request->no_control;
@@ -93,7 +94,7 @@ class HorarioController extends Controller
         $resultados->save();
 
         return redirect()->back()
-            ->with('mensaje', 'Se registraron los datos CORRECTAMENTE')
+            ->with('mensaje', 'Se registraron los datos CORRECTAMENTE ')
             ->with('icono', 'success');
     }
     //hola Ñabo

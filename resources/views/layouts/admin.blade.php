@@ -71,7 +71,7 @@
             <ul>
                 <li><a href="{{ url('/admin') }}" class="active"><i class="bi bi-house navicon"></i>Inicio</a></li>
                 <li><a href="{{ url('/admin/resultados') }}"><i class="bi bi-info-circle navicon"></i> Resultado de PreRegistro</a></li>
-                <li><a href="{{ url('/admin/horarios') }}"><i class="bi bi-file-earmark-text navicon"></i> Prelista</a> </li>
+                <li><a href="{{ url('/admin/prelista') }}"><i class="bi bi-file-earmark-text navicon"></i> Prelista</a> </li>
                  <!-- Modificacion 11/05/2025 Agregacion de otro modo en la barra lateral-->
                 <li><a href="{{ url('/admin/grupos') }}"><i class="bi bi-people navicon"></i> Grupos</a></li>
                 <li>
@@ -122,6 +122,9 @@
     <script src="{{ url('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ url('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ url('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <!-- Bootstrap Bundle con Popper (incluye ambos) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-PwF4Ld8/5d3uzV7+...tuHash..." crossorigin="anonymous"></script>
+
 
     <!-- AdminLTE App -->
     <script src="{{ url('dist/js/adminlte.min.js') }}"></script>

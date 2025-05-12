@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Horarios')
+@section('title', 'Prelista')
 
 @section('content')
 <div class="p-4">
@@ -46,8 +46,8 @@
                                 <td style="text-align: center">Correo Electrónico</th>
                                 <td style="text-align: center">Correo Institucional</th>
                                 
-                                    <td>{{ $resultado->correo_electronico }}</td>
-                                    <td>{{ $resultado->correo_institucional }}</td>
+                                    {{-- <td>{{ $resultado->correo_electronico }}</td>
+                                    <td>{{ $resultado->correo_institucional }}</td> --}}
                                     -->
                                     <td>{{ $resultado->no_control }}</td>
                                     <td>{{ $resultado->no_telefono }}</td>
@@ -56,15 +56,30 @@
                                     <td>{{ $resultado->nivel }}</td>
                                     <td>{{ $resultado->turno }}</td>
                                     <!--<td>{{ $resultado->created_at->format('d/m/Y H:i') }}</td>-->
-                                    <td style="text-align: center">
-    <a href="{{ route('ruta.editar', $resultado->id) }}" class="btn btn-warning btn-sm">
-        <i class="bi bi-sun"></i> Matutino
-    </a>
-    <form action="{{ route('ruta.eliminar', $resultado->id) }}" method="POST" style="display:inline;">
+                                   <td>
+    <form action="{{ route('grupos-confirmados.store') }}" method="POST" style="display:inline;">
         @csrf
-        @method('DELETE')
-        <button type="submit" class="btn btn-secondary btn-sm" onclick="return confirm('¿Estás seguro de eliminar este registro?')">
-            <i class="bi bi-cloud-moon"></i> vespertino
+        <input type="hidden" name="nombres" value="{{ $resultado->nombres }}">
+        <input type="hidden" name="apellidos" value="{{ $resultado->apellidos }}">
+        <input type="hidden" name="no_control" value="{{ $resultado->no_control }}">
+        <input type="hidden" name="no_telefono" value="{{ $resultado->no_telefono }}">
+        <input type="hidden" name="nivel" value="{{ $resultado->nivel }}">
+        <input type="hidden" name="turno" value="Matutino">
+        <button type="submit" class="btn btn-warning btn-sm">
+            <i class="bi bi-sun"></i> Matutino
+        </button>
+    </form>
+
+    <form action="{{ route('grupos-confirmados.store') }}" method="POST" style="display:inline;">
+        @csrf
+        <input type="hidden" name="nombres" value="{{ $resultado->nombres }}">
+        <input type="hidden" name="apellidos" value="{{ $resultado->apellidos }}">
+        <input type="hidden" name="no_control" value="{{ $resultado->no_control }}">
+        <input type="hidden" name="no_telefono" value="{{ $resultado->no_telefono }}">
+        <input type="hidden" name="nivel" value="{{ $resultado->nivel }}">
+        <input type="hidden" name="turno" value="Vespertino">
+        <button type="submit" class="btn btn-secondary btn-sm">
+            <i class="bi bi-cloud-moon"></i> Vespertino
         </button>
     </form>
 </td>
