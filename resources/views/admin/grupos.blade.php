@@ -52,7 +52,7 @@
                     @endif
 
                     @foreach ($grupos as $turno => $grupoPorTurno)
-                        <h5>{{ ucfirst($turno) }} Turno</h5>
+                        <h5>Turno {{ ucfirst($turno) }} </h5>
                         <div class="table-responsive">
                             <table id="tablaGrupos-{{ $turno }}" class="table table-striped table-bordered table-hover table-sm table align-middle">
                                 <thead class="table-danger">
