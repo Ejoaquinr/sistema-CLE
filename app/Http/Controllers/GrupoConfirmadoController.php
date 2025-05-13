@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Group;
 use App\Models\Prelista;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class GrupoConfirmadoController extends Controller
 {
@@ -13,12 +15,13 @@ class GrupoConfirmadoController extends Controller
      */
     public function index()
     {
-       
+
         // Si el modelo Grupo está bien definido y la base de datos está conectada
         // $grupos = Group::all();  // Obtener todos los grupos
-        $grupos = Group::orderBy('turno')->get()->groupBy('turno');
-
-        return view('admin.grupos', compact('grupos'));  // Pasar los datos a la vista
+        $grupos = Group::all()->groupBy('turno')->map(function ($grupoTurno) {
+            return $grupoTurno->groupBy('nivel');
+        });
+        return view('admin.grupos', compact('grupos'));
     }
 
     /**
@@ -69,42 +72,68 @@ class GrupoConfirmadoController extends Controller
         //
     }
     public function storeDesdeResultado(Request $request)
-{
-    Group::create([
-        'nombres' => $request->nombres,
-        'apellidos' => $request->apellidos,
-        'no_control' => $request->no_control,
-        'no_telefono' => $request->no_telefono,
-        'nivel' => $request->nivel,
-        'turno' => $request->turno, // Matutino o Vespertino
-        'folio' => $request->folio, // Matutino o Vespertino
+    {
+        Group::create([
+            'nombres' => $request->nombres,
+            'apellidos' => $request->apellidos,
+            'no_control' => $request->no_control,
+            'no_telefono' => $request->no_telefono,
+            'nivel' => $request->nivel,
+            'turno' => $request->turno, // Matutino o Vespertino
+            'folio' => $request->folio, // Matutino o Vespertino
 
-       
-    ]);
 
-    return redirect()->back()->with('mensaje', 'Estudiante agregado correctamente')->with('icono', 'success');
-}
-public function guardarFolio(Request $request, $id)
-{
-    $request->validate([
-        'folio' => 'required|string|max:255'
-    ]);
+        ]);
 
-    $grupos= Group::findOrFail($id);
+        return redirect()->back()->with('mensaje', 'Estudiante agregado correctamente')->with('icono', 'success');
+    }
+    public function guardarFolio(Request $request, $id)
+    {
+        $request->validate([
+            'folio' => 'required|string|max:255'
+        ]);
 
-    if ($grupos->folio) {
+        $grupos = Group::findOrFail($id);
+
+        if ($grupos->folio) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Este grupo ya tiene un folio asignado.'
+            ]);
+        }
+
+        $grupos->folio = $request->folio;
+        $grupos->save();
+
         return response()->json([
-            'success' => false,
-            'message' => 'Este grupo ya tiene un folio asignado.'
+            'success' => true,
+            'folio' => $grupos->folio
         ]);
     }
+//   public function gruposConfirmados()
+// {
+//     $grupos = DB::table('grupos')
+//         ->join('alumnos', 'grupos.alumno_id', '=', 'alumnos.id')
+//         ->select(
+//             'grupos.id',
+//             'grupos.turno',
+//             'grupos.folio',
+//             'alumnos.nombres',
+//             'alumnos.apellidos',
+//             'alumnos.no_control',
+//             'alumnos.no_telefono',
+//             'alumnos.nivel'
+//         )
+//         ->where('grupos.confirmado', true)
+//         ->get()
+//         ->groupBy(function ($grupo) {
+//             return strtolower($grupo->turno);
+//         })
+//         ->map(function ($grupoPorTurno) {
+//             return $grupoPorTurno->groupBy('nivel');
+//         });
 
-    $grupos->folio = $request->folio;
-    $grupos->save();
+//     return view('admin.grupos', compact('grupos'));
+// }
 
-    return response()->json([
-        'success' => true,
-        'folio' => $grupos->folio
-    ]);
-}
 }

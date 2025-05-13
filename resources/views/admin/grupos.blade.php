@@ -3,200 +3,203 @@
 @section('title', 'Grupos Confirmados')
 
 @section('content')
+    <link rel="stylesheet" href="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.css">
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 
-<script>
-    function guardarFolio(event, grupoId) {
-        event.preventDefault();
+    <div class="container py-4">
+        <h4 class="mb-4">Filtrar por Turno:</h4>
+        <div class="btn-group mb-3" role="group" id="filtros-turno">
+            <button class="btn btn-secondary active" data-filter="*">Todos</button>
+            @foreach ($grupos as $turno => $niveles)
+                <button class="btn btn-secondary" data-filter=".{{ $turno }}">{{ ucfirst($turno) }}</button>
+            @endforeach
+        </div>
 
-        const form = document.getElementById('form-folio-' + grupoId);
-        const formData = new FormData(form);
-
-        fetch("{{ url('/grupo') }}/" + grupoId + "/guardar-folio", {
-            method: "POST",
-            headers: {
-                'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
-            },
-            body: formData
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                document.getElementById('td-folio-' + grupoId).innerHTML = data.folio;
-            } else {
-                alert(data.message || 'Ocurrió un error');
-            }
-        })
-        .catch(err => {
-            console.error(err);
-            alert("Error al guardar el folio");
-        });
-    }
-</script>
-
-<link rel="stylesheet" href="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js">
-
-<div class="p-4">
-    <div class="row mb-3">
-        <div class="col text-center">
-            <button class="btn btn-outline-primary filter-button" data-filter="*">Todos</button>
-            <button class="btn btn-outline-success filter-button" data-filter=".matutino">Matutino</button>
-            <button class="btn btn-outline-warning filter-button" data-filter=".vespertino">Vespertino</button>
-            <button class="btn btn-outline-info filter-button" data-filter=".sabado">Sábado</button>
+        <div class="row isotope">
+            @foreach ($grupos as $turno => $niveles)
+                @foreach ($niveles as $nivel => $grupoPorNivel)
+                    <div class="col-12 mb-4 {{ $turno }}">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <strong>{{ ucfirst($turno) }} - Nivel {{ $nivel }}</strong>
+                            </div>
+                            <div class="card-body table-responsive">
+                                <table class="table table-bordered table-striped table-sm tabla-turno"
+                                    id="tabla-{{ $turno }}-{{ $nivel }}">
+                                    <thead class="table-danger">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nombre(s)</th>
+                                            <th>Apellidos</th>
+                                            <th>No. Control</th>
+                                            <th>Teléfono</th>
+                                            <th>Folio</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @php $i = 1; @endphp
+                                        @foreach ($grupoPorNivel as $grupo)
+                                            <tr>
+                                                <td>{{ $i++ }}</td>
+                                                <td>{{ $grupo->nombres }}</td>
+                                                <td>{{ $grupo->apellidos }}</td>
+                                                <td>{{ $grupo->no_control }}</td>
+                                                <td>{{ $grupo->no_telefono }}</td>
+                                                <td id="td-folio-{{ $grupo->id }}">
+                                                    @if ($grupo->folio)
+                                                        {{ $grupo->folio }}
+                                                    @else
+                                                        <form onsubmit="guardarFolio(event, {{ $grupo->id }})"
+                                                            id="form-folio-{{ $grupo->id }}" class="d-flex">
+                                                            @csrf
+                                                            <input type="text" name="folio"
+                                                                class="form-control form-control-sm me-1" required>
+                                                            <button type="submit"
+                                                                class="btn btn-success btn-sm">Guardar</button>
+                                                        </form>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            @endforeach
         </div>
     </div>
 
-    <div class="row isotope-container">
-        @foreach ($grupos as $turno => $grupoPorTurno)
-            <div class="col-12 mb-4 element-item {{ strtolower($turno) }}">
-                <div class="card border border-primary">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Turno {{ ucfirst($turno) }}</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="tablaGrupos-{{ $turno }}" class="table table-bordered table-hover table-sm align-middle">
-                                <thead class="table-secondary">
-                                    <tr>
-                                        <th style="text-align: center">Nro</th>
-                                        <th style="text-align: center">Nombre(s)</th>
-                                        <th style="text-align: center">Apellidos</th>
-                                        <th style="text-align: center">No. Control</th>
-                                        <th style="text-align: center">No. Teléfono</th>
-                                        <th style="text-align: center">Nivel</th>
-                                        <th style="text-align: center">Folio</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @php $contador = 1; @endphp
-                                    @foreach ($grupoPorTurno as $grupo)
-                                        <tr>
-                                            <td style="text-align: center">{{ $contador++ }}</td>
-                                            <td>{{ $grupo->nombres }}</td>
-                                            <td>{{ $grupo->apellidos }}</td>
-                                            <td>{{ $grupo->no_control }}</td>
-                                            <td>{{ $grupo->no_telefono }}</td>
-                                            <td>{{ $grupo->nivel }}</td>
-                                            <td id="td-folio-{{ $grupo->id }}">
-                                                @if ($grupo->folio)
-                                                    {{ $grupo->folio }}
-                                                @else
-                                                    <form onsubmit="guardarFolio(event, {{ $grupo->id }})" id="form-folio-{{ $grupo->id }}" class="d-flex">
-                                                        @csrf
-                                                        <input type="text" name="folio" class="form-control form-control-sm me-1" required>
-                                                        <button type="submit" class="btn btn-success btn-sm">Guardar</button>
-                                                    </form>
-                                                @endif
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-    </div>
-</div>
+    <script>
+        function guardarFolio(event, grupoId) {
+            event.preventDefault();
 
-<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-<script>
-    $(document).ready(function() {
-        var $grid = $('.isotope-container').isotope({
-            itemSelector: '.element-item',
-            layoutMode: 'fitRows'
-        });
+            const form = document.getElementById('form-folio-' + grupoId);
+            const formData = new FormData(form);
 
-        $('.filter-button').on('click', function() {
-            var filterValue = $(this).attr('data-filter');
-            $grid.isotope({ filter: filterValue });
-        });
-
-        @foreach ($grupos as $turno => $grupoPorTurno)
-            $("#tablaGrupos-{{ $turno }}").DataTable({
-                "pageLength": 25,
-                "language": {
-                    "emptyTable": "No hay información",
-                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Registros",
-                    "infoEmpty": "Mostrando 0 a 0 de 0 Registros",
-                    "infoFiltered": "(Filtrado de _MAX_ total registros)",
-                    "lengthMenu": "Mostrar _MENU_ Registros",
-                    "loadingRecords": "Cargando...",
-                    "processing": "Procesando...",
-                    "search": "Buscador:",
-                    "zeroRecords": "Sin resultados encontrados",
-                    "paginate": {
-                        "first": "Primero",
-                        "last": "Último",
-                        "next": "Siguiente",
-                        "previous": "Anterior"
+            fetch("{{ url('/grupo') }}/" + grupoId + "/guardar-folio", {
+                    method: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+                    },
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById('td-folio-' + grupoId).innerHTML = data.folio;
+                    } else {
+                        alert(data.message || 'Ocurrió un error');
                     }
-                },
-                "responsive": true,
-                "lengthChange": true,
-                "autoWidth": false,
-                buttons: [
-                    {
-                        extend: 'collection',
-                        text: 'Reportes',
-                        orientation: 'landscape',
-                        buttons: [
-                            {
-                                extend: 'copy',
-                                text: '<button class="btn btn-info btn-sm btn-block"></i> COPIAR',
-                                className: 'btn btn-info btn-sm',
-                                title: 'Listado de Grupos Confirmados',
-                                exportOptions: {
-                                    columns: ':visible'
-                                }
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Error al guardar el folio");
+                });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Isotope
+            var iso = new Isotope('.isotope', {
+                itemSelector: '.col-12',
+                layoutMode: 'fitRows'
+            });
+
+            document.querySelectorAll('#filtros-turno button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('#filtros-turno button').forEach(b => b.classList
+                        .remove('active'));
+                    this.classList.add('active');
+                    iso.arrange({
+                        filter: this.getAttribute('data-filter')
+                    });
+                });
+            });
+
+            // DataTables
+            @foreach ($grupos as $turno => $niveles)
+                @foreach ($niveles as $nivel => $grupoPorNivel)
+                    $('#tabla-{{ $turno }}-{{ $nivel }}').DataTable({
+                        pageLength: 10,
+                        responsive: true,
+                        language: {
+                            emptyTable: "No hay información",
+                            info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                            infoEmpty: "Mostrando 0 a 0 de 0 registros",
+                            lengthMenu: "Mostrar _MENU_ registros",
+                            loadingRecords: "Cargando...",
+                            processing: "Procesando...",
+                            search: "Buscar:",
+                            zeroRecords: "Sin resultados encontrados",
+                            paginate: {
+                                first: "Primero",
+                                last: "Último",
+                                next: "Siguiente",
+                                previous: "Anterior"
+                            }
+                        },
+                        dom: 'Bfrtip',
+                        buttons: [{
+                                extend: 'collection',
+                                text: 'Reportes',
+                                orientation: 'landscape',
+                                buttons: [{
+                                        extend: 'copy',
+                                        text: '<button class="btn btn-info btn-sm btn-block">COPIAR</button>',
+                                        className: '',
+                                        title: 'Listado de Grupos Confirmados',
+                                        exportOptions: {
+                                            columns: ':visible'
+                                        }
+                                    },
+                                    {
+                                        extend: 'pdf',
+                                        text: '<button class="btn btn-danger btn-sm btn-block">PDF</button>',
+                                        className: '',
+                                        title: 'Listado de Grupos Confirmados',
+                                        exportOptions: {
+                                            columns: ':visible'
+                                        }
+                                    },
+                                    {
+                                        extend: 'csv',
+                                        text: '<button class="btn btn-secondary btn-sm btn-block">CSV</button>',
+                                        className: '',
+                                        title: 'Listado de Grupos Confirmados',
+                                        exportOptions: {
+                                            columns: ':visible'
+                                        }
+                                    },
+                                    {
+                                        extend: 'excel',
+                                        text: '<button class="btn btn-success btn-sm btn-block">EXCEL</button>',
+                                        className: '',
+                                        title: 'Listado de Grupos Confirmados',
+                                        exportOptions: {
+                                            columns: ':visible'
+                                        }
+                                    },
+                                    {
+                                        extend: 'print',
+                                        text: '<button class="btn btn-primary btn-sm btn-block"><i class="bi bi-printer"></i> IMPRIMIR</button>',
+                                        className: '',
+                                        title: 'Listado de Grupos Confirmados',
+                                        exportOptions: {
+                                            columns: ':visible'
+                                        }
+                                    }
+                                ]
                             },
                             {
-                                extend: 'pdf',
-                                text: '<button class="btn btn-danger btn-sm btn-block"></i> PDF',
-                                className: 'btn btn-danger btn-sm',
-                                title: 'Listado de Grupos Confirmados',
-                                exportOptions: {
-                                    columns: ':visible'
-                                }
-                            },
-                            {
-                                extend: 'csv',
-                                text: '<button class="btn btn-secondary btn-sm btn-block"></i> CSV',
-                                className: 'btn btn-secondary btn-sm',
-                                title: 'Listado de Grupos Confirmados',
-                                exportOptions: {
-                                    columns: ':visible'
-                                }
-                            },
-                            {
-                                extend: 'excel',
-                                text: '<button class="btn btn-success btn-sm btn-block"></i> EXCEL',
-                                className: 'btn btn-success btn-sm',
-                                title: 'Listado de Grupos Confirmados',
-                                exportOptions: {
-                                    columns: ':visible'
-                                }
-                            },
-                            {
-                                extend: 'print',
-                                text: '<button class="btn btn-primary btn-sm btn-block"><i class="bi bi-printer"></i> IMPRIMIR',
-                                className: 'btn btn-primary btn-sm',
-                                title: 'Listado de Grupos Confirmados',
-                                exportOptions: {
-                                    columns: ':visible'
-                                }
+                                extend: 'colvis',
+                                text: 'Visor de columnas',
+                                collectionLayout: 'fixed three-column'
                             }
                         ]
-                    },
-                    {
-                        extend: 'colvis',
-                        text: 'Visor de columnas',
-                        collectionLayout: 'fixed three-column'
-                    }
-                ]
-            }).buttons().container().appendTo('#tablaGrupos-{{ $turno }}_wrapper .col-md-6:eq(0)');
-        @endforeach
-    });
-</script>
-
+                    });
+                @endforeach
+            @endforeach
+        });
+    </script>
 @endsection

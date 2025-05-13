@@ -62,6 +62,7 @@
         <input type="hidden" name="nombres" value="{{ $resultado->nombres }}">
         <input type="hidden" name="apellidos" value="{{ $resultado->apellidos }}">
         <input type="hidden" name="no_control" value="{{ $resultado->no_control }}">
+        <input type="hidden" name="carrera" value="{{ $resultado->carrera }}">
         <input type="hidden" name="no_telefono" value="{{ $resultado->no_telefono }}">
         <input type="hidden" name="nivel" value="{{ $resultado->nivel }}">
         <input type="hidden" name="turno" value="Matutino">
@@ -75,6 +76,7 @@
         <input type="hidden" name="nombres" value="{{ $resultado->nombres }}">
         <input type="hidden" name="apellidos" value="{{ $resultado->apellidos }}">
         <input type="hidden" name="no_control" value="{{ $resultado->no_control }}">
+        <input type="hidden" name="carrera" value="{{ $resultado->carrera }}">
         <input type="hidden" name="no_telefono" value="{{ $resultado->no_telefono }}">
         <input type="hidden" name="nivel" value="{{ $resultado->nivel }}">
         <input type="hidden" name="turno" value="Vespertino">
