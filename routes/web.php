@@ -47,3 +47,6 @@ Route::post('/grupos-confirmados', [GrupoConfirmadoController::class, 'storeDesd
 Route::put('/grupos/{id}/folio', [GrupoConfirmadoController::class, 'updateFolio'])->name('grupos.updateFolio');
 
 Route::post('/grupo/{id}/guardar-folio', [GrupoConfirmadoController::class, 'guardarFolio']);
+Route::post('/grupos-confirmados', [GrupoConfirmadoController::class, 'store'])->name('grupos-confirmados.store');
+
+Route::post('/grupos-confirmados-desde-resultado', [GrupoConfirmadoController::class, 'storeDesdeResultado'])->name('grupos-confirmados.desde-resultado');

@@ -57,33 +57,22 @@
                                     <td>{{ $resultado->turno }}</td>
                                     <!--<td>{{ $resultado->created_at->format('d/m/Y H:i') }}</td>-->
                                    <td>
-    <form action="{{ route('grupos-confirmados.store') }}" method="POST" style="display:inline;">
-        @csrf
-        <input type="hidden" name="nombres" value="{{ $resultado->nombres }}">
-        <input type="hidden" name="apellidos" value="{{ $resultado->apellidos }}">
-        <input type="hidden" name="no_control" value="{{ $resultado->no_control }}">
-        <input type="hidden" name="carrera" value="{{ $resultado->carrera }}">
-        <input type="hidden" name="no_telefono" value="{{ $resultado->no_telefono }}">
-        <input type="hidden" name="nivel" value="{{ $resultado->nivel }}">
-        <input type="hidden" name="turno" value="Matutino">
-        <button type="submit" class="btn btn-warning btn-sm">
-            <i class="bi bi-sun"></i> Matutino
-        </button>
-    </form>
+  <form action="{{ route('grupos-confirmados.desde-resultado') }}" method="POST" style="display:inline;">
+    @csrf
+    <input type="hidden" name="nombres" value="{{ $resultado->nombres }}">
+    <input type="hidden" name="apellidos" value="{{ $resultado->apellidos }}">
+    <input type="hidden" name="no_control" value="{{ $resultado->no_control }}">
+    <input type="hidden" name="carrera" value="{{ $resultado->carrera }}">
+    <input type="hidden" name="no_telefono" value="{{ $resultado->no_telefono }}">
+    <input type="hidden" name="nivel" value="{{ $resultado->nivel }}">
+    <input type="hidden" name="turno" value="{{ $resultado->turno }}">
+    <button type="submit" class="btn btn-success btn-sm">
+        <i class="bi bi-check-circle"></i> Confirmar
+    </button>
+</form>
 
-    <form action="{{ route('grupos-confirmados.store') }}" method="POST" style="display:inline;">
-        @csrf
-        <input type="hidden" name="nombres" value="{{ $resultado->nombres }}">
-        <input type="hidden" name="apellidos" value="{{ $resultado->apellidos }}">
-        <input type="hidden" name="no_control" value="{{ $resultado->no_control }}">
-        <input type="hidden" name="carrera" value="{{ $resultado->carrera }}">
-        <input type="hidden" name="no_telefono" value="{{ $resultado->no_telefono }}">
-        <input type="hidden" name="nivel" value="{{ $resultado->nivel }}">
-        <input type="hidden" name="turno" value="Vespertino">
-        <button type="submit" class="btn btn-secondary btn-sm">
-            <i class="bi bi-cloud-moon"></i> Vespertino
-        </button>
-    </form>
+
+   
 </td>
                                 </tr>
                             @endforeach

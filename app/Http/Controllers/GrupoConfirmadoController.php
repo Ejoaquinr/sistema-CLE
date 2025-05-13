@@ -37,7 +37,13 @@ class GrupoConfirmadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Guardar en grupos_confirmados
+    Group::create($request->all());
+
+    // Eliminar de prelistas
+    Prelista::where('no_control', $request->no_control)->delete();
+
+    return redirect()->back()->with('success', 'Estudiante confirmado correctamente.');
     }
 
     /**
@@ -84,6 +90,8 @@ class GrupoConfirmadoController extends Controller
 
 
         ]);
+        Prelista::where('no_control', $request->no_control)->delete();
+
 
         return redirect()->back()->with('mensaje', 'Estudiante agregado correctamente')->with('icono', 'success');
     }
