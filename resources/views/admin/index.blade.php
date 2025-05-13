@@ -1,22 +1,54 @@
 @extends('layouts.admin')
-@section('title', 'Inicio')
+@section('title', 'Panel de Administración')
+
 @section('content')
-    <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; background: linear-gradient(to right, #44337a, #1a202c); padding-top: 80px;">
-        <div style="text-align: center; width: 100%; max-width: 600px;">
-            <h1 style="font-size: 1.875rem; font-weight: bold; margin-bottom: 1rem; color: white;">Bienvenida de nuevo, maestra</h1>
-            <p style="font-size: 1.125rem; color: white;">
-                Presione el botón si desea abrir el formulario de este nuevo periodo.
+
+   {{-- ¡Eliminado el mensaje superior con session('status')! --}}
+
+   <div class="min-h-screen flex justify-center bg-gradient-to-r from-purple-900 to-gray-900 px-4 pt-24">
+        <div class="text-center w-full max-w-xl">
+        
+            {{-- Mensaje de sesión dinámico --}}
+            @if(session('mensaje'))
+                @php
+                    $esHabilitado = str_contains(session('mensaje'), 'habilitado');
+                    $bgColor = $esHabilitado ? 'bg-green-600' : 'bg-red-600';
+                @endphp
+                <div class="{{ $bgColor }} text-white px-4 py-3 rounded shadow-md mb-6 text-center">
+                    <span class="block font-semibold">{{ session('mensaje') }}</span>
+                </div>
+            @endif
+
+            {{-- Título y descripción --}}
+            <h1 class="text-4xl font-bold text-white mb-4">Bienvenida de nuevo, maestra</h1>
+            <p class="text-lg text-white mb-6">
+                Presione el botón para controlar la disponibilidad del formulario de este nuevo periodo.
             </p>
-        </div>
-        
-        <!-- Espacio fijo de 200px -->
-        <div style="height: 200px;"></div>
-        
-        <div style="text-align: center; width: 100%; max-width: 600px;">
-            <a href="#" 
-               style="background-color: #2563eb; color: white; font-weight: 500; padding: 0.5rem 1rem; border: 1px solid #1d4ed8; border-radius: 0.25rem; display: inline-block; font-size: 0.875rem;">
-                Abrir formulario
-            </a>
+
+            <br>
+
+            {{-- Estado del formulario --}}
+            <div class="mb-6 text-white text-lg">
+                <strong>Estado actual:</strong>
+                @if($form_enabled == '1')
+                    <span class="ml-2 text-green-400">Formulario habilitado</span>
+                @else
+                    <span class="ml-2 text-red-400">Formulario deshabilitado</span>
+                @endif
+            </div>
+   <br>
+   <br>
+   <br>
+   <br>
+            {{-- Botón de acción --}}
+            <div class="w-full flex justify-center mt-10">
+               <a href="{{ route('admin.toggle-form') }}"
+   class="mt-10 inline-block bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-bold text-lg py-3 px-8 rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 border-2 border-yellow-200">
+    {{ $form_enabled == '1' ? 'Deshabilitar formulario' : 'Habilitar formulario' }}
+</a>
+
+            </div>
         </div>
     </div>
+
 @endsection

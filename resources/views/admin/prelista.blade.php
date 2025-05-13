@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Horarios')
+@section('title', 'Prelista')
 
 @section('content')
 <div class="p-4">
@@ -20,14 +20,19 @@
                                 <td style="text-align: center">Nro</td>
                                 <td style="text-align: center">Nombre(s)</th>
                                 <td style="text-align: center">Apellidos</th>
+                                
+                                 <!-- Se oculta lo que es el correo electronico y el correo 
                                 <td style="text-align: center">Correo Electrónico</th>
                                 <td style="text-align: center">Correo Institucional</th>
+                                -->
                                 <td style="text-align: center">No. Control</th>
                                 <td style="text-align: center">No. Teléfono</th>
-                                <td style="text-align: center">Carrera</th>
+                               <!-- <td style="text-align: center">Carrera</th>-->
                                 <td style="text-align: center">Nivel</th>
                                 <td style="text-align: center">Turno</th>
-                                <td style="text-align: center">Fecha de Registro</th>
+                                <!--<td style="text-align: center">Fecha de Registro</th>-->
+                                 <!-- Actualizacion botones 11/05/2025-->
+                                <td style="text-align: center">Grupos</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,14 +42,38 @@
                                     <td style="text-align: center">{{ $contador++ }}</td>
                                     <td>{{ $resultado->nombres }}</td>
                                     <td>{{ $resultado->apellidos }}</td>
-                                    <td>{{ $resultado->correo_electronico }}</td>
-                                    <td>{{ $resultado->correo_institucional }}</td>
+                                    <!-- Se oculta lo que es el correo electronico y el correo 
+                                <td style="text-align: center">Correo Electrónico</th>
+                                <td style="text-align: center">Correo Institucional</th>
+                                
+                                    {{-- <td>{{ $resultado->correo_electronico }}</td>
+                                    <td>{{ $resultado->correo_institucional }}</td> --}}
+                                    -->
                                     <td>{{ $resultado->no_control }}</td>
                                     <td>{{ $resultado->no_telefono }}</td>
-                                    <td>{{ $resultado->carrera }}</td>
+
+                                   <!-- <td>{{ $resultado->carrera }}</td>-->
                                     <td>{{ $resultado->nivel }}</td>
                                     <td>{{ $resultado->turno }}</td>
-                                    <td>{{ $resultado->created_at->format('d/m/Y H:i') }}</td>
+                                    <!--<td>{{ $resultado->created_at->format('d/m/Y H:i') }}</td>-->
+                                   <td>
+  <form action="{{ route('grupos-confirmados.desde-resultado') }}" method="POST" style="display:inline;">
+    @csrf
+    <input type="hidden" name="nombres" value="{{ $resultado->nombres }}">
+    <input type="hidden" name="apellidos" value="{{ $resultado->apellidos }}">
+    <input type="hidden" name="no_control" value="{{ $resultado->no_control }}">
+    <input type="hidden" name="carrera" value="{{ $resultado->carrera }}">
+    <input type="hidden" name="no_telefono" value="{{ $resultado->no_telefono }}">
+    <input type="hidden" name="nivel" value="{{ $resultado->nivel }}">
+    <input type="hidden" name="turno" value="{{ $resultado->turno }}">
+    <button type="submit" class="btn btn-success btn-sm">
+        <i class="bi bi-check-circle"></i> Confirmar
+    </button>
+</form>
+
+
+   
+</td>
                                 </tr>
                             @endforeach
                         </tbody>

@@ -176,57 +176,60 @@
 
         </section><!-- /Stats Section -->
 
-        <!-- Pre-Registro Section -->
-           <!--Esto es para la advertencia en la vista del pre-r.  -->
-        <section id="resume" class="resume section">
+  <!-- Pre-Registro Section -->
+@php
+    $form_enabled = \App\Models\Setting::getValue('form_enabled', '0');
+@endphp
 
+<section id="resume" class="resume section">
+    @if($form_enabled == '1')
+        <!--Esto es para la advertencia en la vista del pre-r.  -->
         @if ($errors->any())
-    <div class="alert alert-warning">
-        <strong>Atención:</strong> Por favor completa todos los campos obligatorios.
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-@if (session('mensaje') && !$errors->any())
-    <div class="alert alert-success">
-        {{ session('mensaje') }}
-    </div>
-@endif
-
-<!-- SweetAlert2 de error para volver a la vista del pre-r. -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-@if ($errors->any())
-    <script>
-        Swal.fire({
-            icon: 'warning',
-            title: 'Faltan campos por llenar',
-            html: `
-                <ul style="text-align:left;">
+            <div class="alert alert-warning">
+                <strong>Atención:</strong> Por favor completa todos los campos obligatorios.
+                <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
                 </ul>
-            `,
-            confirmButtonText: 'Volver a completar',
-        });
-    </script>
-@endif
+            </div>
+        @endif
 
-@if (session('mensaje'))
-    <script>
-        Swal.fire({
-            icon: '{{ session('icono', 'success') }}',
-            title: '{{ session('mensaje') }}',
-            confirmButtonText: 'Aceptar',
-        });
-    </script>
-@endif
+        @if (session('mensaje') && !$errors->any())
+            <div class="alert alert-success">
+                {{ session('mensaje') }}
+            </div>
+        @endif
 
+        <!-- SweetAlert2 de error para volver a la vista del pre-r. -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        @if ($errors->any())
+            <script>
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Faltan campos por llenar',
+                    html: `
+                        <ul style="text-align:left;">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    `,
+                    confirmButtonText: 'Volver a completar',
+                });
+            </script>
+        @endif
+
+        @if (session('mensaje'))
+            <script>
+                Swal.fire({
+                    icon: '{{ session('icono', 'success') }}',
+                    title: '{{ session('mensaje') }}',
+                    confirmButtonText: 'Aceptar',
+                });
+            </script>
+        @endif
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -331,16 +334,30 @@
                     </div><!-- End Contact Form -->
                 </div>
             </div>
+@else
+        <!-- Section Title cuando el formulario está deshabilitado -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>PRE-REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA</h2>
+            <div class="alert alert-info text-center" role="alert">
+                <p class="mb-0 text-lg">
+                    <i class="bi bi-info-circle me-2"></i>
+                    El periodo de pre-registro no está disponible en este momento. Por favor, vuelve más tarde.
+                </p>
+            </div>
+        </div>
+    @endif
+</section><!-- /Pre-Registro Section -->
+
 
         </section><!-- /Pre-Registro Section -->
 
-        <!-- Portfolio Section -->
+        <!-- Material Didáctico Section -->
         <section id="portfolio" class="portfolio section light-background">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Material Didactico</h2>
-                <p>Aqui va toda la informacion sobre el libro, pago, pagina de blink, etc etc/p>
+                <h2>Material Didactico por OMEGA BOOK COMPANY</h2>
+                <p>Somos líderes en distribución de textos y contenidos digitales para la enseñanza de idiomas. Colaboramos con las mejores editoriales nacionales e internacionales para garantizar el surtido en México, Centro y Sudamérica.</p>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -349,70 +366,27 @@
                     data-sort="original-order">
 
                     <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-app">App</li>
-                        <li data-filter=".filter-product">Product</li>
-                        <li data-filter=".filter-branding">Branding</li>
-                        <li data-filter=".filter-books">Books</li>
+                        <li data-filter="*" class="filter-active">Todo el material disponible</li>
+                        <li data-filter=".filter-new">Level 1 & 2</li>
+                        <li data-filter=".filter-app">Level 3 & 4</li>
+                        <li data-filter=".filter-product">Level 5 & 6</li>
+                        <li data-filter=".filter-branding">Level 7 & 8</li>
+                        <li data-filter=".filter-books">Level 9 & 10</li>
                     </ul><!-- End Portfolio Filters -->
+
 
                     <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-new">
                             <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt="">
+                                <img src="assets/img/material/English-Aware-NE-01.png" class="img-fluid" alt="">
                                 <div class="portfolio-info">
-                                    <h4>App 1</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="assets/img/portfolio/app-1.jpg" title="App 1"
+                                    <h4>English Aware 1 New Edition</h4>
+                                    <p>Para alumnos que inician el curso de inglés.</p>
+                                    <a href="assets/img/material/English-Aware-NE-01.png" title="NO lo compres online, dirígete a las oficinas del CLE."
                                         data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                            class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/product-1.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <h4>Product 1</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="assets/img/portfolio/product-1.jpg" title="Product 1"
-                                        data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                                            class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                            class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/branding-1.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <h4>Branding 1</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="assets/img/portfolio/branding-1.jpg" title="Branding 1"
-                                        data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                                            class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                            class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/books-1.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <h4>Books 1</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="assets/img/portfolio/books-1.jpg" title="Branding 1"
-                                        data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i
-                                            class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy-copy-copy-copy" title="More Details" class="details-link"><i
                                             class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div>
@@ -420,29 +394,30 @@
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                             <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/app-2.jpg" class="img-fluid" alt="">
+                                <img src="assets/img/material/English-Aware-NE-02.png" class="img-fluid" alt="">
                                 <div class="portfolio-info">
-                                    <h4>App 2</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="assets/img/portfolio/app-2.jpg" title="App 2"
+                                    <h4>English Aware 2 New Edition</h4>
+                                    <p>Para alumnos que pasan al nivel 3.</p>
+                                    <a href="assets/img/material/English-Aware-NE-02.png" title="NO lo compres online, dirígete a las oficinas del CLE."
                                         data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy-copy-copy" title="More Details" class="details-link"><i
                                             class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div>
                         </div><!-- End Portfolio Item -->
 
+
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
                             <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/product-2.jpg" class="img-fluid" alt="">
+                                <img src="assets/img/material/English-Aware-NE-03.png" class="img-fluid" alt="">
                                 <div class="portfolio-info">
-                                    <h4>Product 2</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="assets/img/portfolio/product-2.jpg" title="Product 2"
+                                    <h4>English Aware 3 New Edition</h4>
+                                    <p>Para alumnos que pasan al nivel 5.</p>
+                                    <a href="assets/img/portfolio/English-Aware-NE-03.png" title="NO lo compres online, dirígete a las oficinas del CLE."
                                         data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy-copy" title="More Details" class="details-link"><i
                                             class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div>
@@ -450,14 +425,14 @@
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                             <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/branding-2.jpg" class="img-fluid" alt="">
+                                <img src="assets/img/material/English-Aware-NE-04.png" class="img-fluid" alt="">
                                 <div class="portfolio-info">
-                                    <h4>Branding 2</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="assets/img/portfolio/branding-2.jpg" title="Branding 2"
+                                    <h4>English Aware 4 New Edition</h4>
+                                    <p>Para alumnos que pasan al nivel 7.</p>
+                                    <a href="assets/img/material/English-Aware-NE-04.png" title="NO lo compres online, dirígete a las oficinas del CLE."
                                         data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy" title="More Details" class="details-link"><i
                                             class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div>
@@ -465,86 +440,26 @@
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
                             <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/books-2.jpg" class="img-fluid" alt="">
+                                <img src="assets/img/material/English-Aware-NE-05.png" class="img-fluid" alt="">
                                 <div class="portfolio-info">
-                                    <h4>Books 2</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="assets/img/portfolio/books-2.jpg" title="Branding 2"
+                                    <h4>English Aware 5 New Edition</h4>
+                                    <p>Para alumnos que pasan al nivel 9.</p>
+                                    <a href="assets/img/material/English-Aware-NE-05.png" title="NO lo compres online, dirígete a las oficinas del CLE.""
                                         data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
+                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy" title="More Details" class="details-link"><i
                                             class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div>
-                        </div><!-- End Portfolio Item -->
+                        </div><!-- End Material Item -->
 
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/app-3.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <h4>App 3</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="assets/img/portfolio/app-3.jpg" title="App 3"
-                                        data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
-                                            class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                            class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/product-3.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <h4>Product 3</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="assets/img/portfolio/product-3.jpg" title="Product 3"
-                                        data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
-                                            class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                            class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/branding-3.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <h4>Branding 3</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="assets/img/portfolio/branding-3.jpg" title="Branding 2"
-                                        data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
-                                            class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                            class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
-                            <div class="portfolio-content h-100">
-                                <img src="assets/img/portfolio/books-3.jpg" class="img-fluid" alt="">
-                                <div class="portfolio-info">
-                                    <h4>Books 3</h4>
-                                    <p>Lorem ipsum, dolor sit amet consectetur</p>
-                                    <a href="assets/img/portfolio/books-3.jpg" title="Branding 3"
-                                        data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i
-                                            class="bi bi-zoom-in"></i></a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                            class="bi bi-link-45deg"></i></a>
-                                </div>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                    </div><!-- End Portfolio Container -->
+                    </div><!-- End Material Container -->
 
                 </div>
 
             </div>
 
-        </section><!-- /Portfolio Section -->
+        </section><!-- /Material Section -->
 
         <!-- Services Section -->
         <section id="services" class="services section">
@@ -552,7 +467,7 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Acerca de</h2>
-                <p>Mision, vision, avalados por, etc etc etc</p>
+                <p>La Coordinación de Lenguas Extranjeras y Maternas se compromete a ser transparente con la comunidad estudiantil.</p>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -562,10 +477,13 @@
                     <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
                         <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
                         <div>
-                            <h4 class="title"><a href="service-details.html" class="stretched-link">Lorem Ipsum</a>
+                            <h4 class="title"><a href="service-details.html" class="stretched-link">Misión</a>
                             </h4>
-                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias
-                                excepturi sint occaecati cupiditate non provident</p>
+                            <p style="text-align: justify;" class="description">La Coordinación de Lenguas Extranjeras (CLE) del Tecnológico Nacional de México Campus Iguala tiene como misión proporcionar enseñanza de calidad del idioma extranjero inglés, 
+                                apoyando el desarrollo académico y profesional de los estudiantes y del público en general 
+                                mediante estrategias innovadoras y metodologías efectivas. 
+                                Su propósito es fortalecer las competencias lingüísticas de los alumnos y participantes externos, 
+                                preparándolos para enfrentar retos en cualquier entorno y facilitando su acceso a mejores oportunidades laborales y académicas.</p>
                         </div>
                     </div>
                     <!-- End Service Item -->
@@ -573,53 +491,24 @@
                     <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
                         <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
                         <div>
-                            <h4 class="title"><a href="service-details.html" class="stretched-link">Dolor Sitema</a>
+                            <h4 class="title"><a href="service-details.html" class="stretched-link">Visión</a>
                             </h4>
-                            <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo consequat tarad limino ata</p>
+                            <p style="text-align: justify;" class="description">La Coordinación de Lenguas Extranjeras (CLE) del Tecnológico Nacional de México Campus Iguala tiene como visión consolidarse como un centro de enseñanza de idiomas reconocido por su calidad educativa, 
+                                innovación en métodos de enseñanza y accesibilidad para los estudiantes y el público en general. 
+                                Su objetivo es proporcionar herramientas lingüísticas que impulsen el desarrollo académico y profesional de los alumnos y participantes externos, 
+                                promoviendo el dominio de una segunda lengua como parte fundamental de su formación y crecimiento personal.</p>
                         </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
                         <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
                         <div>
-                            <h4 class="title"><a href="service-details.html" class="stretched-link">Sed ut
-                                    perspiciatis</a></h4>
-                            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur</p>
+                            <h4 class="title"><a href="service-details.html" class="stretched-link">Avalados por</a></h4>
+                            <p style="text-align: justify;" class="description">Una vez que concluyes los 10 niveles, tu constancia está avalada por
+                            el Marco Común Europeo de Referencia para las lenguas (MCER), con un nivel B1.</p>
                         </div>
                     </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                        <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
-                        <div>
-                            <h4 class="title"><a href="service-details.html" class="stretched-link">Magni
-                                    Dolores</a></h4>
-                            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                                officia deserunt mollit anim id est laborum</p>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-                        <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
-                        <div>
-                            <h4 class="title"><a href="service-details.html" class="stretched-link">Nemo Enim</a>
-                            </h4>
-                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                blanditiis praesentium voluptatum deleniti atque</p>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-                        <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
-                        <div>
-                            <h4 class="title"><a href="service-details.html" class="stretched-link">Eiusmod
-                                    Tempor</a></h4>
-                            <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero
-                                tempore, cum soluta nobis est eligendi</p>
-                        </div>
-                    </div><!-- End Service Item -->
-
+                    
                 </div>
 
             </div>
@@ -721,15 +610,15 @@
     <script src="assets/js/main.js"></script>
 
     @if (($Message = Session::get('mensaje')) && ($icono = Session::get('icono')))
-        <script>
-            Swal.fire({
-                position: "top",
-                icon: "{{ $icono }}",
-                title: "{{ $Message }}",
-                showConfirmButton: false,
-                timer: 4500
-            });
-        </script>
+    <script>
+        Swal.fire({
+            position: "top",
+            icon: "{{ $icono }}",
+            title: "{{ $Message }}",
+            showConfirmButton: false,
+            timer: 4500
+        });
+    </script>
     @endif
 
 </body>

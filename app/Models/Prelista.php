@@ -4,26 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Group extends Model
+class Prelista extends Model
 {
 
-    // Datos Registrados de una prelistaaaaaaaaaaaaaa
 
-    protected $table = 'grupos_confirmados'; // nombre de la tabla existente
+    //Datos Regsitrados de una prelista
+   protected $table = 'resultados';
 
     protected $fillable = [
-
         'nombres',
         'apellidos',
         'no_control',
         'no_telefono',
-        'carrera',
         'nivel',
         'turno',
-        'folio'
-         
-
 
     ];
 }
-
