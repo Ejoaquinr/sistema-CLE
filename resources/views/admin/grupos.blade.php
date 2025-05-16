@@ -15,6 +15,12 @@
             @endforeach
         </div>
 
+        <script>
+            $(document).ready(function() {
+                $('#filtros-turno button[data-filter="*"]').trigger('click');
+            });
+        </script>
+
         <div class="row isotope">
             @foreach ($grupos as $turno => $niveles)
                 @foreach ($niveles as $nivel => $grupoPorNivel)
