@@ -110,6 +110,7 @@
             </div>
         </section>
 
+<<<<<<< HEAD
         <!-- About Section -->
 <section id="about" class="about section light-background">
 
@@ -154,6 +155,70 @@
     </div>
   </div>
 </section>
+=======
+
+        <!-- About Section -->
+        <section id="about" class="about section light-background">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Informacion</h2>
+                <p>Informacion Acerca del CLE, niveles, horaris, ect etc etc</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        </section><!-- /About Section -->
+
+        <!-- Stats Section -->
+        <section id="stats" class="stats section light-background">
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <i class="bi bi-emoji-smile"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                            <p><strong>Happy Clients</strong> <span>consequuntur quae</span></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <i class="bi bi-journal-richtext"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                            <p><strong>Projects</strong> <span>adipisci atque cum quia aut</span></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <i class="bi bi-headset"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="1453"
+                                data-purecounter-duration="1" class="purecounter"></span>
+                            <p><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-item">
+                            <i class="bi bi-people"></i>
+                            <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
+                                class="purecounter"></span>
+                            <p><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
+                        </div>
+                    </div><!-- End Stats Item -->
+
+                </div>
+
+            </div>
+
+        </section><!-- /Stats Section -->
+>>>>>>> 9927b3e1eeb8e4128f5e47a7129e3632ecdf65fa
 
   <!-- Pre-Registro Section -->
 @php
@@ -337,6 +402,10 @@
             <div class="container section-title" data-aos="fade-up">
                 <h2>Material Didactico por OMEGA BOOK COMPANY</h2>
                 <p>Somos líderes en distribución de textos y contenidos digitales para la enseñanza de idiomas. Colaboramos con las mejores editoriales nacionales e internacionales para garantizar el surtido en México, Centro y Sudamérica.</p>
+<<<<<<< HEAD
+=======
+                <p>NO realices la compra online, dirígete a las oficinas del CLE por tu libro.</p>
+>>>>>>> 9927b3e1eeb8e4128f5e47a7129e3632ecdf65fa
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -393,7 +462,11 @@
                                 <div class="portfolio-info">
                                     <h4>English Aware 3 New Edition</h4>
                                     <p>Para alumnos que pasan al nivel 5.</p>
+<<<<<<< HEAD
                                     <a href="assets/img/portfolio/English-Aware-NE-03.png" title="NO lo compres online, dirígete a las oficinas del CLE."
+=======
+                                    <a href="assets/img/material/English-Aware-NE-03.png" title="NO lo compres online, dirígete a las oficinas del CLE."
+>>>>>>> 9927b3e1eeb8e4128f5e47a7129e3632ecdf65fa
                                         data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
                                     <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy-copy" title="More Details" class="details-link"><i
