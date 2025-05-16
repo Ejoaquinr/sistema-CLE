@@ -355,6 +355,7 @@
             <div class="container section-title" data-aos="fade-up">
                 <h2>Material Didactico por OMEGA BOOK COMPANY</h2>
                 <p>Somos líderes en distribución de textos y contenidos digitales para la enseñanza de idiomas. Colaboramos con las mejores editoriales nacionales e internacionales para garantizar el surtido en México, Centro y Sudamérica.</p>
+                <p>NO realices la compra online, dirígete a las oficinas del CLE por tu libro.</p>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -411,7 +412,7 @@
                                 <div class="portfolio-info">
                                     <h4>English Aware 3 New Edition</h4>
                                     <p>Para alumnos que pasan al nivel 5.</p>
-                                    <a href="assets/img/portfolio/English-Aware-NE-03.png" title="NO lo compres online, dirígete a las oficinas del CLE."
+                                    <a href="assets/img/material/English-Aware-NE-03.png" title="NO lo compres online, dirígete a las oficinas del CLE."
                                         data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
                                     <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy-copy" title="More Details" class="details-link"><i
