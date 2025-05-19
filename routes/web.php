@@ -50,3 +50,9 @@ Route::post('/grupo/{id}/guardar-folio', [GrupoConfirmadoController::class, 'gua
 Route::post('/grupos-confirmados', [GrupoConfirmadoController::class, 'store'])->name('grupos-confirmados.store');
 
 Route::post('/grupos-confirmados-desde-resultado', [GrupoConfirmadoController::class, 'storeDesdeResultado'])->name('grupos-confirmados.desde-resultado');
+Route::get('/grupos/alumnos/create', [GrupoConfirmadoController::class, 'create'])->name('grupos.alumnos.create');
+Route::post('/grupos/alumnos', [GrupoConfirmadoController::class, 'store'])->name('grupos.alumnos.store');
+Route::get('/grupos/confirmados', [GrupoConfirmadoController::class, 'index'])->name('grupos.confirmados');
+Route::get('/grupos/{id}/edit', [GrupoConfirmadoController::class, 'edit'])->name('grupos.edit');
+Route::put('/grupos/{id}', [GrupoConfirmadoController::class, 'update'])->name('grupos.update');
+Route::delete('/grupos/{id}', [GrupoConfirmadoController::class, 'destroy'])->name('grupos.destroy');
