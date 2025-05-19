@@ -36,23 +36,28 @@ Route::get('/admin/toggle-form', [AdminController::class, 'toggleForm'])->name('
 
 //
 
-Route::get('/prelista/{id}/editar', [PrelistaController::class, 'edit'])->name('ruta.editar');
-Route::delete('/prelista/{id}', [PrelistaController::class, 'destroy'])->name('ruta.eliminar');
+Route::get('/prelista/{id}/editar', [App\Http\Controllers\PrelistaController::class, 'edit'])->name('ruta.editar');
+Route::delete('/prelista/{id}', [App\Http\Controllers\PrelistaController::class, 'destroy'])->name('ruta.eliminar');
 
-Route::get('/admin/grupos', [GrupoConfirmadoController::class, 'index'])->name('admin.grupos');
+Route::get('/admin/grupos', [App\Http\Controllers\GrupoConfirmadoController::class, 'index'])->name('admin.grupos');
+// Route::get(uri: '/admin/grupos/reportes', [GrupoConfirmadoController::class, 'reportes'])->name('admin.grupos.reportes');
+Route::get('/admin/pdf', [App\Http\Controllers\GrupoConfirmadoController::class, 'pdf'])->name('admin.pdf');
 
-Route::get('/admin/confirmar-grupo/{id}/{grupo}', [GrupoConfirmadoController::class, 'confirmarGrupo'])->name('grupo.confirmar');
+Route::get('/admin/confirmar-grupo/{id}/{grupo}', [App\Http\Controllers\GrupoConfirmadoController::class, 'confirmarGrupo'])->name('grupo.confirmar');
 //cambio 11/05/2025
-Route::post('/grupos-confirmados', [GrupoConfirmadoController::class, 'storeDesdeResultado'])->name('grupos-confirmados.store');
-Route::put('/grupos/{id}/folio', [GrupoConfirmadoController::class, 'updateFolio'])->name('grupos.updateFolio');
+Route::post('/grupos-confirmados', [App\Http\Controllers\GrupoConfirmadoController::class, 'storeDesdeResultado'])->name('grupos-confirmados.store');
+Route::put('/grupos/{id}/folio', [App\Http\Controllers\GrupoConfirmadoController::class, 'updateFolio'])->name('grupos.updateFolio');
 
-Route::post('/grupo/{id}/guardar-folio', [GrupoConfirmadoController::class, 'guardarFolio']);
-Route::post('/grupos-confirmados', [GrupoConfirmadoController::class, 'store'])->name('grupos-confirmados.store');
+Route::post('/grupo/{id}/guardar-folio', [App\Http\Controllers\GrupoConfirmadoController::class, 'guardarFolio']);
+Route::post('/grupos-confirmados', [App\Http\Controllers\GrupoConfirmadoController::class, 'store'])->name('grupos-confirmados.store');
 
-Route::post('/grupos-confirmados-desde-resultado', [GrupoConfirmadoController::class, 'storeDesdeResultado'])->name('grupos-confirmados.desde-resultado');
-Route::get('/grupos/alumnos/create', [GrupoConfirmadoController::class, 'create'])->name('grupos.alumnos.create');
-Route::post('/grupos/alumnos', [GrupoConfirmadoController::class, 'store'])->name('grupos.alumnos.store');
-Route::get('/grupos/confirmados', [GrupoConfirmadoController::class, 'index'])->name('grupos.confirmados');
-Route::get('/grupos/{id}/edit', [GrupoConfirmadoController::class, 'edit'])->name('grupos.edit');
-Route::put('/grupos/{id}', [GrupoConfirmadoController::class, 'update'])->name('grupos.update');
-Route::delete('/grupos/{id}', [GrupoConfirmadoController::class, 'destroy'])->name('grupos.destroy');
+Route::post('/grupos-confirmados-desde-resultado', [App\Http\Controllers\GrupoConfirmadoController::class, 'storeDesdeResultado'])->name('grupos-confirmados.desde-resultado');
+Route::get('/grupos/alumnos/create', [App\Http\Controllers\GrupoConfirmadoController::class, 'create'])->name('grupos.alumnos.create');
+Route::post('/grupos/alumnos', [App\Http\Controllers\GrupoConfirmadoController::class, 'store'])->name('grupos.alumnos.store');
+Route::get('/grupos/confirmados', [App\Http\Controllers\GrupoConfirmadoController::class, 'index'])->name('grupos.confirmados');
+Route::get('/grupos/{id}/edit', [App\Http\Controllers\GrupoConfirmadoController::class, 'edit'])->name('grupos.edit');
+Route::put('/grupos/{id}', [App\Http\Controllers\GrupoConfirmadoController::class, 'update'])->name('grupos.update');
+Route::delete('/grupos/{id}', [App\Http\Controllers\GrupoConfirmadoController::class, 'destroy'])->name('grupos.destroy');
+
+
+

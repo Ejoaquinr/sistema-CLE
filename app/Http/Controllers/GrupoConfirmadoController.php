@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class GrupoConfirmadoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource. 
      */
     public function index()
     {
@@ -140,6 +140,27 @@ class GrupoConfirmadoController extends Controller
             'success' => true,
             'folio' => $grupos->folio
         ]);
+    }
+    // public function reportes()
+    // {
+    //     return view('admin.grupos.reportes');
+    // }
+
+        public function pdf()
+    {
+        // $configuracion = Configuracione::latest()->first();
+        // $doctores = Doctor::all();
+        $pdf = \PDF::loadView('admin.pdf');
+
+        // // Incluir la numeración de páginas y el pie de página
+        // $pdf->output();
+        // $dompdf = $pdf->getDomPDF();
+        // $canvas = $dompdf->getCanvas();
+        // $canvas->page_text(20, 800, "Impreso por: " . Auth::user()->email, null, 10, array(0, 0, 0));
+        // $canvas->page_text(270, 800, "Página {PAGE_NUM} de {PAGE_COUNT}", null, 10, array(0, 0, 0));
+        // $canvas->page_text(450, 800, "Fecha: " . \Carbon\Carbon::now()->format('d/m/Y') . " - " . \Carbon\Carbon::now()->format('H:i:s'), null, 10, array(0, 0, 0));
+
+        return $pdf->stream();
     }
 
 

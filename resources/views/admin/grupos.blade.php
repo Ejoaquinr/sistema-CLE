@@ -35,6 +35,10 @@
                                     class="btn btn-success btn-sm mb-3">
                                     + Agregar Alumno a {{ ucfirst($turno) }} - Nivel {{ $nivel }}
                                 </a>
+                                <a href="{{url('admin/pdf')}}" target="_blank" 
+                                    class="btn btn-danger btn-sm mb-3">
+                                    PDF LISTA
+                                </a>
                                 <table class="table table-bordered table-striped table-sm tabla-turno"
                                     id="tabla-{{ $turno }}-{{ $nivel }}">
                                     <thead class="table-danger">
