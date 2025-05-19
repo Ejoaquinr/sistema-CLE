@@ -121,7 +121,7 @@ class GrupoConfirmadoController extends Controller
     public function guardarFolio(Request $request, $id)
     {
         $request->validate([
-            'folio' => 'required|string|max:255'
+            'folio' => 'required|string|unique:grupos_confirmados,folio|max:255'
         ]);
 
         $grupos = Group::findOrFail($id);
@@ -141,30 +141,6 @@ class GrupoConfirmadoController extends Controller
             'folio' => $grupos->folio
         ]);
     }
-    //   public function gruposConfirmados()
-    // {
-    //     $grupos = DB::table('grupos')
-    //         ->join('alumnos', 'grupos.alumno_id', '=', 'alumnos.id')
-    //         ->select(
-    //             'grupos.id',
-    //             'grupos.turno',
-    //             'grupos.folio',
-    //             'alumnos.nombres',
-    //             'alumnos.apellidos',
-    //             'alumnos.no_control',
-    //             'alumnos.no_telefono',
-    //             'alumnos.nivel'
-    //         )
-    //         ->where('grupos.confirmado', true)
-    //         ->get()
-    //         ->groupBy(function ($grupo) {
-    //             return strtolower($grupo->turno);
-    //         })
-    //         ->map(function ($grupoPorTurno) {
-    //             return $grupoPorTurno->groupBy('nivel');
-    //         });
 
-    //     return view('admin.grupos', compact('grupos'));
-    // }
 
 }
