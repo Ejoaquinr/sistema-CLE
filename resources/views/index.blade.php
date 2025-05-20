@@ -112,80 +112,165 @@
 
 
         <!-- About Section -->
-<section id="about" class="about section light-background">
+        <section id="about" class="about section light-background">
 
-<!--<section id="horarios" class="section">-->
-  <div class="container" data-aos="fade-up">
-    <div class="row justify-content-center text-center mb-4">
-      <div class="col-lg-8">
-        <h2 class="fw-bold">Información sobre horarios y grupos de los cursos de inglés</h2>
-      </div>
-    </div>
+            <!--<section id="horarios" class="section">-->
+            <div class="container" data-aos="fade-up">
+                <div class="row justify-content-center text-center mb-4">
+                    <div class="col-lg-8">
+                        <h2 class="fw-bold">Información sobre horarios y grupos de los cursos de inglés</h2>
+                    </div>
+                </div>
 
-    <div class="table-responsive shadow-sm rounded">
-      <table class="table table-bordered text-center align-middle">
-        <thead class="table-light fw-bold">
-          <tr>
-            <th class="bg-primary text-white">Grupo</th>
-            <th class="bg-primary text-white">Horario</th>
-            <th class="bg-primary text-white">Aula</th>
-            <th class="bg-primary text-white">Profesor</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>3A</td><td>1:00pm - 2:30pm</td><td>E4</td><td>Lic. Héctor Almazán Ángeles</td></tr>
-          <tr><td>3B</td><td>11:00am - 12:00pm</td><td>E12</td><td>Lic. Ana Fabiola Martínez Cervantes</td></tr>
-          <tr><td>3C</td><td>2:30pm - 4:00pm</td><td>E2</td><td>Lic. Jesús Flores Figueroa</td></tr>
-          <tr><td>3D</td><td>10:00am - 11:00am</td><td>A8</td><td>Lic. Alan Román Castro</td></tr>
-          <tr><td>3E</td><td>8:00am - 3:00pm (Sabatino)</td><td>A4</td><td>Lic. Jesús Flores Figueroa</td></tr>
-          <tr><td>3F</td><td>1:00pm - 2:30pm</td><td>E2</td><td>Lic. Jesús Flores Figueroa</td></tr>
-          <tr><td></td><td>8:00am - 3:00pm (Sabatino)</td><td>A2</td><td>Lic. Miguel Ángel Ávila González</td></tr>
-          <tr><td>4A</td><td>10:00am - 11:00am</td><td>E6</td><td>Lic. Héctor Almazán Ángeles</td></tr>
-          <tr><td>4B</td><td>8:00am - 3:00pm (Sabatino)</td><td>A7</td><td>Lic. Nelly Salgado Jardón</td></tr>
-          <tr><td>5B</td><td>8:00am - 3:00pm (Sabatino)</td><td>A1</td><td>Lic. Diana Salgado Martínez</td></tr>
-          <tr><td>7A</td><td>1:00pm - 2:30pm</td><td>E12</td><td>Lic. Ana Fabiola Martínez Cervantes</td></tr>
-          <tr><td>7C</td><td>2:30pm - 4:00pm</td><td>E12</td><td>Lic. Ana Fabiola Martínez Cervantes</td></tr>
-          <tr><td>7D</td><td>10:00am - 11:00am</td><td>E12</td><td>Lic. Ana Fabiola Martínez Cervantes</td></tr>
-          <tr><td>7E</td><td>8:00am - 3:00pm (Sabatino)</td><td>A6</td><td>Lic. Héctor Almazán Ángeles</td></tr>
-          <tr><td>7F</td><td>8:00am - 3:00pm (Sabatino)</td><td>A5</td><td>Lic. María Magdalena García Roa</td></tr>
-          <tr><td>9B</td><td>8:00am - 3:00pm (Sabatino)</td><td>A3</td><td>Lic. Ana Fabiola Martínez Cervantes</td></tr>
-          <tr><td>10A</td><td>2:30pm - 4:00pm</td><td>E4</td><td>Lic. Héctor Almazán Ángeles</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
+                <div class="table-responsive shadow-sm rounded">
+                    <table class="table table-bordered text-center align-middle">
+                        <thead class="table-light fw-bold">
+                            <tr>
+                                <th class="bg-primary text-white">Grupo</th>
+                                <th class="bg-primary text-white">Horario</th>
+                                <th class="bg-primary text-white">Aula</th>
+                                <th class="bg-primary text-white">Profesor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3A</td>
+                                <td>1:00pm - 2:30pm</td>
+                                <td>E4</td>
+                                <td>Lic. Héctor Almazán Ángeles</td>
+                            </tr>
+                            <tr>
+                                <td>3B</td>
+                                <td>11:00am - 12:00pm</td>
+                                <td>E12</td>
+                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
+                            </tr>
+                            <tr>
+                                <td>3C</td>
+                                <td>2:30pm - 4:00pm</td>
+                                <td>E2</td>
+                                <td>Lic. Jesús Flores Figueroa</td>
+                            </tr>
+                            <tr>
+                                <td>3D</td>
+                                <td>10:00am - 11:00am</td>
+                                <td>A8</td>
+                                <td>Lic. Alan Román Castro</td>
+                            </tr>
+                            <tr>
+                                <td>3E</td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A4</td>
+                                <td>Lic. Jesús Flores Figueroa</td>
+                            </tr>
+                            <tr>
+                                <td>3F</td>
+                                <td>1:00pm - 2:30pm</td>
+                                <td>E2</td>
+                                <td>Lic. Jesús Flores Figueroa</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A2</td>
+                                <td>Lic. Miguel Ángel Ávila González</td>
+                            </tr>
+                            <tr>
+                                <td>4A</td>
+                                <td>10:00am - 11:00am</td>
+                                <td>E6</td>
+                                <td>Lic. Héctor Almazán Ángeles</td>
+                            </tr>
+                            <tr>
+                                <td>4B</td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A7</td>
+                                <td>Lic. Nelly Salgado Jardón</td>
+                            </tr>
+                            <tr>
+                                <td>5B</td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A1</td>
+                                <td>Lic. Diana Salgado Martínez</td>
+                            </tr>
+                            <tr>
+                                <td>7A</td>
+                                <td>1:00pm - 2:30pm</td>
+                                <td>E12</td>
+                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
+                            </tr>
+                            <tr>
+                                <td>7C</td>
+                                <td>2:30pm - 4:00pm</td>
+                                <td>E12</td>
+                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
+                            </tr>
+                            <tr>
+                                <td>7D</td>
+                                <td>10:00am - 11:00am</td>
+                                <td>E12</td>
+                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
+                            </tr>
+                            <tr>
+                                <td>7E</td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A6</td>
+                                <td>Lic. Héctor Almazán Ángeles</td>
+                            </tr>
+                            <tr>
+                                <td>7F</td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A5</td>
+                                <td>Lic. María Magdalena García Roa</td>
+                            </tr>
+                            <tr>
+                                <td>9B</td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A3</td>
+                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
+                            </tr>
+                            <tr>
+                                <td>10A</td>
+                                <td>2:30pm - 4:00pm</td>
+                                <td>E4</td>
+                                <td>Lic. Héctor Almazán Ángeles</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
 
-  <!-- Pre-Registro Section -->
-@php
-    $form_enabled = \App\Models\Setting::getValue('form_enabled', '0');
-@endphp
+        <!-- Pre-Registro Section -->
+        @php
+        $form_enabled = \App\Models\Setting::getValue('form_enabled', '0');
+        @endphp
 
-<section id="resume" class="resume section">
-    @if($form_enabled == '1')
-        <!--Esto es para la advertencia en la vista del pre-r.  -->
-        @if ($errors->any())
+        <section id="resume" class="resume section">
+            @if($form_enabled == '1')
+            <!--Esto es para la advertencia en la vista del pre-r.  -->
+            @if ($errors->any())
             <div class="alert alert-warning">
                 <strong>Atención:</strong> Por favor completa todos los campos obligatorios.
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                    <li>{{ $error }}</li>
                     @endforeach
                 </ul>
             </div>
-        @endif
+            @endif
 
-        @if (session('mensaje') && !$errors->any())
+            @if (session('mensaje') && !$errors->any())
             <div class="alert alert-success">
                 {{ session('mensaje') }}
             </div>
-        @endif
+            @endif
 
-        <!-- SweetAlert2 de error para volver a la vista del pre-r. -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <!-- SweetAlert2 de error para volver a la vista del pre-r. -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        @if ($errors->any())
+            @if ($errors->any())
             <script>
                 Swal.fire({
                     icon: 'warning',
@@ -200,17 +285,18 @@
                     confirmButtonText: 'Volver a completar',
                 });
             </script>
-        @endif
+            @endif
 
-        @if (session('mensaje'))
+            @if (session('mensaje'))
             <script>
                 Swal.fire({
-                    icon: '{{ session('icono', 'success') }}',
-                    title: '{{ session('mensaje') }}',
+                    icon: "{{ session('icono', 'success') }}",
+                    title: "{{ session('mensaje') }}",
                     confirmButtonText: 'Aceptar',
                 });
             </script>
-        @endif
+            @endif
+
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -241,7 +327,7 @@
                                     <input type="text" name="correo_electronico" id="correo"
                                         class="form-control" required="">
                                     @error('correo_electronico')
-                                        <small style="color:red">{{ $message }}</small>
+                                    <small style="color:red">{{ $message }}</small>
                                     @enderror
                                 </div>
 
@@ -315,19 +401,19 @@
                     </div><!-- End Contact Form -->
                 </div>
             </div>
-@else
-        <!-- Section Title cuando el formulario está deshabilitado -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>PRE-REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA</h2>
-            <div class="alert alert-info text-center" role="alert">
-                <p class="mb-0 text-lg">
-                    <i class="bi bi-info-circle me-2"></i>
-                    El periodo de pre-registro no está disponible en este momento. Por favor, vuelve más tarde.
-                </p>
+            @else
+            <!-- Section Title cuando el formulario está deshabilitado -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>PRE-REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA</h2>
+                <div class="alert alert-info text-center" role="alert">
+                    <p class="mb-0 text-lg">
+                        <i class="bi bi-info-circle me-2"></i>
+                        El periodo de pre-registro no está disponible en este momento. Por favor, vuelve más tarde.
+                    </p>
+                </div>
             </div>
-        </div>
-    @endif
-</section><!-- /Pre-Registro Section -->
+            @endif
+        </section><!-- /Pre-Registro Section -->
 
 
         </section><!-- /Pre-Registro Section -->
@@ -431,7 +517,7 @@
                                     <h4>English Aware 5 New Edition</h4>
                                     <p>Para alumnos que pasan al nivel 9.</p>
                                     <a href="assets/img/material/English-Aware-NE-05.png" title="NO lo compres online, dirígete a las oficinas del CLE.""
-                                        data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i
+                                        data-gallery=" portfolio-gallery-book" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
                                     <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy" title="More Details" class="details-link"><i
                                             class="bi bi-link-45deg"></i></a>
@@ -465,10 +551,10 @@
                         <div>
                             <h4 class="title"><a href="service-details.html" class="stretched-link">Misión</a>
                             </h4>
-                            <p style="text-align: justify;" class="description">La Coordinación de Lenguas Extranjeras (CLE) del Tecnológico Nacional de México Campus Iguala tiene como misión proporcionar enseñanza de calidad del idioma extranjero inglés, 
-                                apoyando el desarrollo académico y profesional de los estudiantes y del público en general 
-                                mediante estrategias innovadoras y metodologías efectivas. 
-                                Su propósito es fortalecer las competencias lingüísticas de los alumnos y participantes externos, 
+                            <p style="text-align: justify;" class="description">La Coordinación de Lenguas Extranjeras (CLE) del Tecnológico Nacional de México Campus Iguala tiene como misión proporcionar enseñanza de calidad del idioma extranjero inglés,
+                                apoyando el desarrollo académico y profesional de los estudiantes y del público en general
+                                mediante estrategias innovadoras y metodologías efectivas.
+                                Su propósito es fortalecer las competencias lingüísticas de los alumnos y participantes externos,
                                 preparándolos para enfrentar retos en cualquier entorno y facilitando su acceso a mejores oportunidades laborales y académicas.</p>
                         </div>
                     </div>
@@ -479,9 +565,9 @@
                         <div>
                             <h4 class="title"><a href="service-details.html" class="stretched-link">Visión</a>
                             </h4>
-                            <p style="text-align: justify;" class="description">La Coordinación de Lenguas Extranjeras (CLE) del Tecnológico Nacional de México Campus Iguala tiene como visión consolidarse como un centro de enseñanza de idiomas reconocido por su calidad educativa, 
-                                innovación en métodos de enseñanza y accesibilidad para los estudiantes y el público en general. 
-                                Su objetivo es proporcionar herramientas lingüísticas que impulsen el desarrollo académico y profesional de los alumnos y participantes externos, 
+                            <p style="text-align: justify;" class="description">La Coordinación de Lenguas Extranjeras (CLE) del Tecnológico Nacional de México Campus Iguala tiene como visión consolidarse como un centro de enseñanza de idiomas reconocido por su calidad educativa,
+                                innovación en métodos de enseñanza y accesibilidad para los estudiantes y el público en general.
+                                Su objetivo es proporcionar herramientas lingüísticas que impulsen el desarrollo académico y profesional de los alumnos y participantes externos,
                                 promoviendo el dominio de una segunda lengua como parte fundamental de su formación y crecimiento personal.</p>
                         </div>
                     </div><!-- End Service Item -->
@@ -491,10 +577,10 @@
                         <div>
                             <h4 class="title"><a href="service-details.html" class="stretched-link">Avalados por</a></h4>
                             <p style="text-align: justify;" class="description">Una vez que concluyes los 10 niveles, tu constancia está avalada por
-                            el Marco Común Europeo de Referencia para las lenguas (MCER), con un nivel B1.</p>
+                                el Marco Común Europeo de Referencia para las lenguas (MCER), con un nivel B1.</p>
                         </div>
                     </div><!-- End Service Item -->
-                    
+
                 </div>
 
             </div>
