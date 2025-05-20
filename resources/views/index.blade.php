@@ -100,7 +100,7 @@
 
         <!-- Hero Section -->
         <section id="hero" class="hero section dark-background">
-            <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
+            <img src="assets/img/portada2.jpg" alt="" data-aos="fade-in" style="opacity: 0.15;">
 
             <!-- Contenido principal del Hero -->
             <div class="container" data-aos="fade-up" data-aos-delay="100">
