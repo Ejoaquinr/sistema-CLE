@@ -149,8 +149,8 @@ class GrupoConfirmadoController extends Controller
         public function pdf()
     {
         // $configuracion = Configuracione::latest()->first();
-        // $doctores = Doctor::all();
-        $pdf = \PDF::loadView('admin.pdf');
+        $alumnos = Group::all();
+        $pdf = \PDF::loadView('admin.pdf',compact('alumnos'));
 
         // // Incluir la numeración de páginas y el pie de página
         // $pdf->output();
