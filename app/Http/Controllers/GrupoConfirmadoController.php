@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class GrupoConfirmadoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource. 
      */
     public function index()
     {
@@ -27,9 +27,12 @@ class GrupoConfirmadoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $turno = $request->query('turno');
+        $nivel = $request->query('nivel');
+
+        return view('admin.alumno', compact('turno', 'nivel'));
     }
 
     /**
@@ -37,13 +40,22 @@ class GrupoConfirmadoController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombres' => 'required|string|max:255',
+            'apellidos' => 'required|string|max:255',
+            'no_control' => 'required|string|max:50|unique:grupos_confirmados,no_control',
+            'no_telefono' => 'nullable|string|max:20',
+            'turno' => 'required|string',
+            'nivel' => 'required|string',
+            'folio' => 'required|string|max:50|unique:grupos_confirmados,folio',
+        ]);
         // Guardar en grupos_confirmados
-    Group::create($request->all());
+        Group::create($request->all());
 
-    // Eliminar de prelistas
-    Prelista::where('no_control', $request->no_control)->delete();
+        // Eliminar de prelistas
+        Prelista::where('no_control', $request->no_control)->delete();
 
-    return redirect()->back()->with('success', 'Estudiante confirmado correctamente.');
+        return redirect()->route('grupos.confirmados')->with('success', 'Alumno registrado correctamente.');
     }
 
     /**
@@ -57,25 +69,36 @@ class GrupoConfirmadoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Prelista $grupoConfirmado)
+    public function edit($id)
     {
-        //
+        $grupo = Group::findOrFail($id);
+        return view('admin.editalumno', compact('grupo'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Prelista $grupoConfirmado)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nombres' => 'required|string|max:255',
+            'apellidos' => 'required|string|max:255',
+            'no_control' => 'required|string|max:50|unique:grupos_confirmados,no_control,' . $id,
+            'no_telefono' => 'nullable|string|max:20',
+            'turno' => 'required|string',
+            'nivel' => 'required|string',
+            'folio' => 'required|string|max:50|unique:grupos_confirmados,folio,' . $id,
+        ]);
+
+        $grupo = Group::findOrFail($id);
+        $grupo->update($request->all());
+
+        return redirect()->route('grupos.confirmados')->with('success', 'Alumno actualizado correctamente.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Prelista $grupoConfirmado)
+    public function destroy($id)
     {
-        //
+        $grupo = Group::findOrFail($id);
+        $grupo->delete();
+
+        return redirect()->route('grupos.confirmados')->with('success', 'Alumno eliminado correctamente.');
     }
     public function storeDesdeResultado(Request $request)
     {
@@ -98,7 +121,7 @@ class GrupoConfirmadoController extends Controller
     public function guardarFolio(Request $request, $id)
     {
         $request->validate([
-            'folio' => 'required|string|max:255'
+            'folio' => 'required|string|unique:grupos_confirmados,folio|max:255'
         ]);
 
         $grupos = Group::findOrFail($id);
@@ -118,30 +141,27 @@ class GrupoConfirmadoController extends Controller
             'folio' => $grupos->folio
         ]);
     }
-//   public function gruposConfirmados()
-// {
-//     $grupos = DB::table('grupos')
-//         ->join('alumnos', 'grupos.alumno_id', '=', 'alumnos.id')
-//         ->select(
-//             'grupos.id',
-//             'grupos.turno',
-//             'grupos.folio',
-//             'alumnos.nombres',
-//             'alumnos.apellidos',
-//             'alumnos.no_control',
-//             'alumnos.no_telefono',
-//             'alumnos.nivel'
-//         )
-//         ->where('grupos.confirmado', true)
-//         ->get()
-//         ->groupBy(function ($grupo) {
-//             return strtolower($grupo->turno);
-//         })
-//         ->map(function ($grupoPorTurno) {
-//             return $grupoPorTurno->groupBy('nivel');
-//         });
+    // public function reportes()
+    // {
+    //     return view('admin.grupos.reportes');
+    // }
 
-//     return view('admin.grupos', compact('grupos'));
-// }
+        public function pdf()
+    {
+        // $configuracion = Configuracione::latest()->first();
+        $alumnos = Group::all();
+        $pdf = \PDF::loadView('admin.pdf',compact('alumnos'));
+
+        // // Incluir la numeración de páginas y el pie de página
+        // $pdf->output();
+        // $dompdf = $pdf->getDomPDF();
+        // $canvas = $dompdf->getCanvas();
+        // $canvas->page_text(20, 800, "Impreso por: " . Auth::user()->email, null, 10, array(0, 0, 0));
+        // $canvas->page_text(270, 800, "Página {PAGE_NUM} de {PAGE_COUNT}", null, 10, array(0, 0, 0));
+        // $canvas->page_text(450, 800, "Fecha: " . \Carbon\Carbon::now()->format('d/m/Y') . " - " . \Carbon\Carbon::now()->format('H:i:s'), null, 10, array(0, 0, 0));
+
+        return $pdf->stream();
+    }
+
 
 }

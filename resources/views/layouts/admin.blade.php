@@ -39,8 +39,9 @@
     <link href="{{ url('assets/vendor/aos/aos.css" rel="stylesheet') }}">
     <link href="{{ url('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Main CSS File -->
+    <!-- Main CSS File  -->
     <link href="{{ url('assets/css/main.css') }}" rel="stylesheet">
 
 
@@ -70,9 +71,11 @@
         <nav id="navmenu" class="navmenu">
             <ul>
                 <li><a href="{{ url('/admin') }}" class="active"><i class="bi bi-house navicon"></i>Inicio</a></li>
-                <li><a href="{{ url('/admin/resultados') }}"><i class="bi bi-info-circle navicon"></i> Resultado de PreRegistro</a></li>
-                <li><a href="{{ url('/admin/prelista') }}"><i class="bi bi-file-earmark-text navicon"></i> Prelista</a> </li>
-                 <!-- Modificacion 11/05/2025 Agregacion de otro modo en la barra lateral-->
+                <li><a href="{{ url('/admin/resultados') }}"><i class="bi bi-info-circle navicon"></i> Resultado de
+                        PreRegistro</a></li>
+                <li><a href="{{ url('/admin/prelista') }}"><i class="bi bi-file-earmark-text navicon"></i> Prelista</a>
+                </li>
+                <!-- Modificacion 11/05/2025 Agregacion de otro modo en la barra lateral-->
                 <li><a href="{{ url('/admin/grupos') }}"><i class="bi bi-people navicon"></i> Grupos</a></li>
                 <li>
                     <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
@@ -122,12 +125,14 @@
     <script src="{{ url('plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
     <script src="{{ url('plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
     <script src="{{ url('plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Bootstrap Bundle con Popper (incluye ambos) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-PwF4Ld8/5d3uzV7+...tuHash..." crossorigin="anonymous"></script>
-<!-- Agregar en el <head> de tu layout principal -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-PwF4Ld8/5d3uzV7+...tuHash..." crossorigin="anonymous"></script>
+    <!-- Agregar en el <head> de tu layout principal -->
 
 
-<!-- Agregar antes del cierre de </body> -->
+    <!-- Agregar antes del cierre de </body> -->
 
 
     <!-- AdminLTE App -->

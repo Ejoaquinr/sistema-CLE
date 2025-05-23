@@ -73,7 +73,11 @@
                 <li><a href="#portfolio"><i class="bi bi-journal-bookmark-fill navicon"></i> Material Didactico</a></li>
                 <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Acerca de</a></li>
                 <li><a href="#contact"><i class="bi bi-telephone-forward navicon"></i> Contacto</a></li>
-                <li><a href="{{ url('login') }}"><i class="bi bi-person navicon"></i> Ingresar</a></li>
+                <li>
+                    <a href="{{ Auth::check() ? route('admin.index') : route('login') }}">
+                        <i class="bi bi-person navicon"></i> Ingresar
+                    </a>
+                </li>
             </ul>
         </nav>
 
@@ -103,7 +107,7 @@
 
         <!-- Hero Section -->
         <section id="hero" class="hero section dark-background">
-            <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
+            <img src="assets/img/portada2.jpg" alt="" data-aos="fade-in" style="opacity: 0.15;">
 
             <!-- Contenido principal del Hero -->
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -117,236 +121,308 @@
         <!-- About Section -->
         <section id="about" class="about section light-background">
 
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Informacion</h2>
-                <p>Informacion Acerca del CLE, niveles, horaris, ect etc etc</p>
-            </div><!-- End Section Title -->
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        </section><!-- /About Section -->
-
-        <!-- Stats Section -->
-        <section id="stats" class="stats section light-background">
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item">
-                            <i class="bi bi-emoji-smile"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p><strong>Happy Clients</strong> <span>consequuntur quae</span></p>
-                        </div>
-                    </div><!-- End Stats Item -->
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item">
-                            <i class="bi bi-journal-richtext"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p><strong>Projects</strong> <span>adipisci atque cum quia aut</span></p>
-                        </div>
-                    </div><!-- End Stats Item -->
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item">
-                            <i class="bi bi-headset"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="1453"
-                                data-purecounter-duration="1" class="purecounter"></span>
-                            <p><strong>Hours Of Support</strong> <span>aut commodi quaerat</span></p>
-                        </div>
-                    </div><!-- End Stats Item -->
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item">
-                            <i class="bi bi-people"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1"
-                                class="purecounter"></span>
-                            <p><strong>Hard Workers</strong> <span>rerum asperiores dolor</span></p>
-                        </div>
-                    </div><!-- End Stats Item -->
-
+            <!--<section id="horarios" class="section">-->
+            <div class="container" data-aos="fade-up">
+                <div class="row justify-content-center text-center mb-4">
+                    <div class="col-lg-8">
+                        <h2 class="fw-bold">Información sobre horarios y grupos de los cursos de inglés</h2>
+                    </div>
                 </div>
 
+                <div class="table-responsive shadow-sm rounded">
+                    <table class="table table-bordered text-center align-middle">
+                        <thead class="table-light fw-bold">
+                            <tr>
+                                <th class="bg-primary text-white">Grupo</th>
+                                <th class="bg-primary text-white">Horario</th>
+                                <th class="bg-primary text-white">Aula</th>
+                                <th class="bg-primary text-white">Profesor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3A</td>
+                                <td>1:00pm - 2:30pm</td>
+                                <td>E4</td>
+                                <td>Lic. Héctor Almazán Ángeles</td>
+                            </tr>
+                            <tr>
+                                <td>3B</td>
+                                <td>11:00am - 12:00pm</td>
+                                <td>E12</td>
+                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
+                            </tr>
+                            <tr>
+                                <td>3C</td>
+                                <td>2:30pm - 4:00pm</td>
+                                <td>E2</td>
+                                <td>Lic. Jesús Flores Figueroa</td>
+                            </tr>
+                            <tr>
+                                <td>3D</td>
+                                <td>10:00am - 11:00am</td>
+                                <td>A8</td>
+                                <td>Lic. Alan Román Castro</td>
+                            </tr>
+                            <tr>
+                                <td>3E</td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A4</td>
+                                <td>Lic. Jesús Flores Figueroa</td>
+                            </tr>
+                            <tr>
+                                <td>3F</td>
+                                <td>1:00pm - 2:30pm</td>
+                                <td>E2</td>
+                                <td>Lic. Jesús Flores Figueroa</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A2</td>
+                                <td>Lic. Miguel Ángel Ávila González</td>
+                            </tr>
+                            <tr>
+                                <td>4A</td>
+                                <td>10:00am - 11:00am</td>
+                                <td>E6</td>
+                                <td>Lic. Héctor Almazán Ángeles</td>
+                            </tr>
+                            <tr>
+                                <td>4B</td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A7</td>
+                                <td>Lic. Nelly Salgado Jardón</td>
+                            </tr>
+                            <tr>
+                                <td>5B</td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A1</td>
+                                <td>Lic. Diana Salgado Martínez</td>
+                            </tr>
+                            <tr>
+                                <td>7A</td>
+                                <td>1:00pm - 2:30pm</td>
+                                <td>E12</td>
+                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
+                            </tr>
+                            <tr>
+                                <td>7C</td>
+                                <td>2:30pm - 4:00pm</td>
+                                <td>E12</td>
+                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
+                            </tr>
+                            <tr>
+                                <td>7D</td>
+                                <td>10:00am - 11:00am</td>
+                                <td>E12</td>
+                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
+                            </tr>
+                            <tr>
+                                <td>7E</td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A6</td>
+                                <td>Lic. Héctor Almazán Ángeles</td>
+                            </tr>
+                            <tr>
+                                <td>7F</td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A5</td>
+                                <td>Lic. María Magdalena García Roa</td>
+                            </tr>
+                            <tr>
+                                <td>9B</td>
+                                <td>8:00am - 3:00pm (Sabatino)</td>
+                                <td>A3</td>
+                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
+                            </tr>
+                            <tr>
+                                <td>10A</td>
+                                <td>2:30pm - 4:00pm</td>
+                                <td>E4</td>
+                                <td>Lic. Héctor Almazán Ángeles</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        </section>
 
-        </section><!-- /Stats Section -->
 
-  <!-- Pre-Registro Section -->
-@php
-    $form_enabled = \App\Models\Setting::getValue('form_enabled', '0');
-@endphp
+        <!-- Pre-Registro Section -->
+        @php
+            $form_enabled = \App\Models\Setting::getValue('form_enabled', '0');
+        @endphp
 
-<section id="resume" class="resume section">
-    @if($form_enabled == '1')
-        <!--Esto es para la advertencia en la vista del pre-r.  -->
-        @if ($errors->any())
-            <div class="alert alert-warning">
-                <strong>Atención:</strong> Por favor completa todos los campos obligatorios.
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        <section id="resume" class="resume section">
+            @if ($form_enabled == '1')
+                <!--Esto es para la advertencia en la vista del pre-r.  -->
+                @if ($errors->any())
+                    <div class="alert alert-warning">
+                        <strong>Atención:</strong> Por favor completa todos los campos obligatorios.
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
 
-        @if (session('mensaje') && !$errors->any())
-            <div class="alert alert-success">
-                {{ session('mensaje') }}
-            </div>
-        @endif
+                @if (session('mensaje') && !$errors->any())
+                    <div class="alert alert-success">
+                        {{ session('mensaje') }}
+                    </div>
+                @endif
 
-        <!-- SweetAlert2 de error para volver a la vista del pre-r. -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <!-- SweetAlert2 de error para volver a la vista del pre-r. -->
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-        @if ($errors->any())
-            <script>
-                Swal.fire({
-                    icon: 'warning',
-                    title: 'Faltan campos por llenar',
-                    html: `
+                @if ($errors->any())
+                    <script>
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Faltan campos por llenar',
+                            html: `
                         <ul style="text-align:left;">
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     `,
-                    confirmButtonText: 'Volver a completar',
-                });
-            </script>
-        @endif
+                            confirmButtonText: 'Volver a completar',
+                        });
+                    </script>
+                @endif
 
-        @if (session('mensaje'))
-            <script>
-                Swal.fire({
-                    icon: '{{ session('icono', 'success') }}',
-                    title: '{{ session('mensaje') }}',
-                    confirmButtonText: 'Aceptar',
-                });
-            </script>
-        @endif
+                @if (session('mensaje'))
+                    <script>
+                        Swal.fire({
+                            icon: "{{ session('icono', 'success') }}",
+                            title: "{{ session('mensaje') }}",
+                            confirmButtonText: 'Aceptar',
+                        });
+                    </script>
+                @endif
 
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>PRE- REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA </h2>
-                <p class="mb-2">
-                    El presente formulario es para realizar el <strong>pre-registro</strong> a los cursos de inglés.
-                    <span class="text-red-600 font-semibold">Este pre-registro no equivale a la inscripción
-                        oficial.</span>
-                    Su finalidad es recopilar datos para asignar horarios y días disponibles.
-                </p>
-                <p>
-                    Asegúrate de llenar todos los campos obligatorios marcados con un asterisco (*).
-                    Posteriormente se te contactará por medio del correo institucional para confirmar tu
-                    inscripción.
-                </p>
-            </div><!-- End Section Title -->
 
-            <div class="container">
+                <!-- Section Title -->
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>PRE- REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA </h2>
+                    <p class="mb-2">
+                        El presente formulario es para realizar el <strong>pre-registro</strong> a los cursos de inglés.
+                        <span class="text-red-600 font-semibold">Este pre-registro no equivale a la inscripción
+                            oficial.</span>
+                        Su finalidad es recopilar datos para asignar horarios y días disponibles.
+                    </p>
+                    <p>
+                        Asegúrate de llenar todos los campos obligatorios marcados con un asterisco (*).
+                        Posteriormente se te contactará por medio del correo institucional para confirmar tu
+                        inscripción.
+                    </p>
+                </div><!-- End Section Title -->
 
-                <div class="row">
+                <div class="container">
 
-                    <div class="col-lg-12">
-                        <form action="{{ url('/admin') }}" method="POST" data-aos="fade-up" data-aos-delay="200">
-                            @csrf
-                            <div class="row gy-4">
-                                <div class="col-md-6">
-                                    <label for="name-field" class="pb-2">Correo Electronico*</label>
-                                    <input type="text" name="correo_electronico" id="correo"
-                                        class="form-control" required="">
-                                    @error('correo_electronico')
-                                        <small style="color:red">{{ $message }}</small>
-                                    @enderror
+                    <div class="row">
+
+                        <div class="col-lg-12">
+                            <form action="{{ url('/admin') }}" method="POST" data-aos="fade-up"
+                                data-aos-delay="200">
+                                @csrf
+                                <div class="row gy-4">
+                                    <div class="col-md-6">
+                                        <label for="name-field" class="pb-2">Correo Electronico*</label>
+                                        <input type="text" name="correo_electronico" id="correo"
+                                            class="form-control" required="">
+                                        @error('correo_electronico')
+                                            <small style="color:red">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="email-field" class="pb-2">Correo institucional*</label>
+                                        <input type="email" class="form-control" name="correo_institucional"
+                                            required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="subject-field" class="pb-2">Nombre(s)*</label>
+                                        <input type="text" class="form-control" name="nombres" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="subject-field" class="pb-2">Apellido(s)*</label>
+                                        <input type="text" class="form-control" name="apellidos" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="subject-field" class="pb-2">Numero de Control*</label>
+                                        <input type="text" class="form-control" name="no_control" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="subject-field" class="pb-2">Numero de Telefono*</label>
+                                        <input type="text" class="form-control" name="no_telefono" required>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="subject-field" class="form-label">Selecciona tu carrera *</label>
+                                        <select name="carrera" class="form-select" required>
+                                            <option disabled selected>Selecciona una carrera</option>
+                                            <option>Ingeniería en Gestión Empresarial</option>
+                                            <option>Ingeniería en Sistemas Computacionales</option>
+                                            <option>Ingeniería Industrial</option>
+                                            <option>Contador Público</option>
+                                            <option>Ingeniería en Informática</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label for="subject-field" class="pb-2">Nivel a ingresar *</label> <br>
+                                        <select name="nivel" class="form-select" required>
+                                            <option disabled selected>Selecciona un nivel</option>
+                                            <option>Primero</option>
+                                            <option>Segundo</option>
+                                            <option>Tercero</option>
+                                            <option>Cuarto</option>
+                                            <option>Quinto</option>
+                                            <option>Sexto</option>
+                                            <option>Séptimo</option>
+                                            <option>Octavo</option>
+                                            <option>Noveno</option>
+                                            <option>Décimo</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="subject-field" class="form-label">Turno Preferible*</label>
+                                        <select name="turno" class="form-select" required>
+                                            <option disabled selected>Selecciona el Turno</option>
+                                            <option>Matutino</option>
+                                            <option>Vespertino</option>
+                                            <option>Sabatino</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn btn-primary">Enviar</button>
+                                    </div>
                                 </div>
-
-                                <div class="col-md-6">
-                                    <label for="email-field" class="pb-2">Correo institucional*</label>
-                                    <input type="email" class="form-control" name="correo_institucional" required>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="subject-field" class="pb-2">Nombre(s)*</label>
-                                    <input type="text" class="form-control" name="nombres" required>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="subject-field" class="pb-2">Apellido(s)*</label>
-                                    <input type="text" class="form-control" name="apellidos" required>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="subject-field" class="pb-2">Numero de Control*</label>
-                                    <input type="text" class="form-control" name="no_control" required>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="subject-field" class="pb-2">Numero de Telefono*</label>
-                                    <input type="text" class="form-control" name="no_telefono" required>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="subject-field" class="form-label">Selecciona tu carrera *</label>
-                                    <select name="carrera" class="form-select" required>
-                                        <option disabled selected>Selecciona una carrera</option>
-                                        <option>Ingeniería en Gestión Empresarial</option>
-                                        <option>Ingeniería en Sistemas Computacionales</option>
-                                        <option>Ingeniería Industrial</option>
-                                        <option>Contador Público</option>
-                                        <option>Ingeniería en Informática</option>
-                                    </select>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label for="subject-field" class="pb-2">Nivel a ingresar *</label> <br>
-                                    <select name="nivel" class="form-select" required>
-                                        <option disabled selected>Selecciona un nivel</option>
-                                        <option>Primero</option>
-                                        <option>Segundo</option>
-                                        <option>Tercero</option>
-                                        <option>Cuarto</option>
-                                        <option>Quinto</option>
-                                        <option>Sexto</option>
-                                        <option>Séptimo</option>
-                                        <option>Octavo</option>
-                                        <option>Noveno</option>
-                                        <option>Décimo</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="subject-field" class="form-label">Turno Preferible*</label>
-                                    <select name="turno" class="form-select" required>
-                                        <option disabled selected>Selecciona el Turno</option>
-                                        <option>Matutino</option>
-                                        <option>Vespertino</option>
-                                        <option>Sabatino</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-primary">Enviar</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div><!-- End Contact Form -->
+                            </form>
+                        </div><!-- End Contact Form -->
+                    </div>
                 </div>
-            </div>
-@else
-        <!-- Section Title cuando el formulario está deshabilitado -->
-        <div class="container section-title" data-aos="fade-up">
-            <h2>PRE-REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA</h2>
-            <div class="alert alert-info text-center" role="alert">
-                <p class="mb-0 text-lg">
-                    <i class="bi bi-info-circle me-2"></i>
-                    El periodo de pre-registro no está disponible en este momento. Por favor, vuelve más tarde.
-                </p>
-            </div>
-        </div>
-    @endif
-</section><!-- /Pre-Registro Section -->
+            @else
+                <!-- Section Title cuando el formulario está deshabilitado -->
+                <div class="container section-title" data-aos="fade-up">
+                    <h2>PRE-REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA</h2>
+                    <div class="alert alert-info text-center" role="alert">
+                        <p class="mb-0 text-lg">
+                            <i class="bi bi-info-circle me-2"></i>
+                            El periodo de pre-registro no está disponible en este momento. Por favor, vuelve más tarde.
+                        </p>
+                    </div>
+                </div>
+            @endif
+        </section><!-- /Pre-Registro Section -->
 
 
         </section><!-- /Pre-Registro Section -->
@@ -357,7 +433,12 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Material Didactico por OMEGA BOOK COMPANY</h2>
-                <p>Somos líderes en distribución de textos y contenidos digitales para la enseñanza de idiomas. Colaboramos con las mejores editoriales nacionales e internacionales para garantizar el surtido en México, Centro y Sudamérica.</p>
+                <p>Somos líderes en distribución de textos y contenidos digitales para la enseñanza de idiomas.
+                    Colaboramos con las mejores editoriales nacionales e internacionales para garantizar el surtido en
+                    México, Centro y Sudamérica.</p>
+
+                <p>NO realices la compra online, dirígete a las oficinas del CLE por tu libro.</p>
+
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -379,14 +460,17 @@
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-new">
                             <div class="portfolio-content h-100">
-                                <img src="assets/img/material/English-Aware-NE-01.png" class="img-fluid" alt="">
+                                <img src="assets/img/material/English-Aware-NE-01.png" class="img-fluid"
+                                    alt="">
                                 <div class="portfolio-info">
                                     <h4>English Aware 1 New Edition</h4>
                                     <p>Para alumnos que inician el curso de inglés.</p>
-                                    <a href="assets/img/material/English-Aware-NE-01.png" title="NO lo compres online, dirígete a las oficinas del CLE."
+                                    <a href="assets/img/material/English-Aware-NE-01.png"
+                                        title="NO lo compres online, dirígete a las oficinas del CLE."
                                         data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
-                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy-copy-copy-copy" title="More Details" class="details-link"><i
+                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy-copy-copy-copy"
+                                        title="More Details" class="details-link"><i
                                             class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div>
@@ -394,14 +478,17 @@
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
                             <div class="portfolio-content h-100">
-                                <img src="assets/img/material/English-Aware-NE-02.png" class="img-fluid" alt="">
+                                <img src="assets/img/material/English-Aware-NE-02.png" class="img-fluid"
+                                    alt="">
                                 <div class="portfolio-info">
                                     <h4>English Aware 2 New Edition</h4>
                                     <p>Para alumnos que pasan al nivel 3.</p>
-                                    <a href="assets/img/material/English-Aware-NE-02.png" title="NO lo compres online, dirígete a las oficinas del CLE."
+                                    <a href="assets/img/material/English-Aware-NE-02.png"
+                                        title="NO lo compres online, dirígete a las oficinas del CLE."
                                         data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
-                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy-copy-copy" title="More Details" class="details-link"><i
+                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy-copy-copy"
+                                        title="More Details" class="details-link"><i
                                             class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div>
@@ -410,14 +497,18 @@
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
                             <div class="portfolio-content h-100">
-                                <img src="assets/img/material/English-Aware-NE-03.png" class="img-fluid" alt="">
+                                <img src="assets/img/material/English-Aware-NE-03.png" class="img-fluid"
+                                    alt="">
                                 <div class="portfolio-info">
                                     <h4>English Aware 3 New Edition</h4>
                                     <p>Para alumnos que pasan al nivel 5.</p>
-                                    <a href="assets/img/portfolio/English-Aware-NE-03.png" title="NO lo compres online, dirígete a las oficinas del CLE."
+
+                                    <a href="assets/img/material/English-Aware-NE-03.png"
+                                        title="NO lo compres online, dirígete a las oficinas del CLE."
                                         data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
-                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy-copy" title="More Details" class="details-link"><i
+                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy-copy"
+                                        title="More Details" class="details-link"><i
                                             class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div>
@@ -425,14 +516,17 @@
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
                             <div class="portfolio-content h-100">
-                                <img src="assets/img/material/English-Aware-NE-04.png" class="img-fluid" alt="">
+                                <img src="assets/img/material/English-Aware-NE-04.png" class="img-fluid"
+                                    alt="">
                                 <div class="portfolio-info">
                                     <h4>English Aware 4 New Edition</h4>
                                     <p>Para alumnos que pasan al nivel 7.</p>
-                                    <a href="assets/img/material/English-Aware-NE-04.png" title="NO lo compres online, dirígete a las oficinas del CLE."
+                                    <a href="assets/img/material/English-Aware-NE-04.png"
+                                        title="NO lo compres online, dirígete a las oficinas del CLE."
                                         data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
-                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy" title="More Details" class="details-link"><i
+                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy-copy"
+                                        title="More Details" class="details-link"><i
                                             class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div>
@@ -440,14 +534,17 @@
 
                         <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books">
                             <div class="portfolio-content h-100">
-                                <img src="assets/img/material/English-Aware-NE-05.png" class="img-fluid" alt="">
+                                <img src="assets/img/material/English-Aware-NE-05.png" class="img-fluid"
+                                    alt="">
                                 <div class="portfolio-info">
                                     <h4>English Aware 5 New Edition</h4>
                                     <p>Para alumnos que pasan al nivel 9.</p>
-                                    <a href="assets/img/material/English-Aware-NE-05.png" title="NO lo compres online, dirígete a las oficinas del CLE.""
-                                        data-gallery="portfolio-gallery-book" class="glightbox preview-link"><i
+                                    <a href="assets/img/material/English-Aware-NE-05.png"
+                                        title="NO lo compres online, dirígete a las oficinas del CLE.""
+                                        data-gallery=" portfolio-gallery-book" class="glightbox preview-link"><i
                                             class="bi bi-zoom-in"></i></a>
-                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy" title="More Details" class="details-link"><i
+                                    <a href="https://omegabookcompany.com.mx/nuevo/?product=english-aware-1-new-edition-copy"
+                                        title="More Details" class="details-link"><i
                                             class="bi bi-link-45deg"></i></a>
                                 </div>
                             </div>
@@ -467,7 +564,8 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Acerca de</h2>
-                <p>La Coordinación de Lenguas Extranjeras y Maternas se compromete a ser transparente con la comunidad estudiantil.</p>
+                <p>La Coordinación de Lenguas Extranjeras y Maternas se compromete a ser transparente con la comunidad
+                    estudiantil.</p>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -479,11 +577,16 @@
                         <div>
                             <h4 class="title"><a href="service-details.html" class="stretched-link">Misión</a>
                             </h4>
-                            <p style="text-align: justify;" class="description">La Coordinación de Lenguas Extranjeras (CLE) del Tecnológico Nacional de México Campus Iguala tiene como misión proporcionar enseñanza de calidad del idioma extranjero inglés, 
-                                apoyando el desarrollo académico y profesional de los estudiantes y del público en general 
-                                mediante estrategias innovadoras y metodologías efectivas. 
-                                Su propósito es fortalecer las competencias lingüísticas de los alumnos y participantes externos, 
-                                preparándolos para enfrentar retos en cualquier entorno y facilitando su acceso a mejores oportunidades laborales y académicas.</p>
+                            <p style="text-align: justify;" class="description">La Coordinación de Lenguas Extranjeras
+                                (CLE) del Tecnológico Nacional de México Campus Iguala tiene como misión proporcionar
+                                enseñanza de calidad del idioma extranjero inglés,
+                                apoyando el desarrollo académico y profesional de los estudiantes y del público en
+                                general
+                                mediante estrategias innovadoras y metodologías efectivas.
+                                Su propósito es fortalecer las competencias lingüísticas de los alumnos y participantes
+                                externos,
+                                preparándolos para enfrentar retos en cualquier entorno y facilitando su acceso a
+                                mejores oportunidades laborales y académicas.</p>
                         </div>
                     </div>
                     <!-- End Service Item -->
@@ -493,22 +596,29 @@
                         <div>
                             <h4 class="title"><a href="service-details.html" class="stretched-link">Visión</a>
                             </h4>
-                            <p style="text-align: justify;" class="description">La Coordinación de Lenguas Extranjeras (CLE) del Tecnológico Nacional de México Campus Iguala tiene como visión consolidarse como un centro de enseñanza de idiomas reconocido por su calidad educativa, 
-                                innovación en métodos de enseñanza y accesibilidad para los estudiantes y el público en general. 
-                                Su objetivo es proporcionar herramientas lingüísticas que impulsen el desarrollo académico y profesional de los alumnos y participantes externos, 
-                                promoviendo el dominio de una segunda lengua como parte fundamental de su formación y crecimiento personal.</p>
+                            <p style="text-align: justify;" class="description">La Coordinación de Lenguas Extranjeras
+                                (CLE) del Tecnológico Nacional de México Campus Iguala tiene como visión consolidarse
+                                como un centro de enseñanza de idiomas reconocido por su calidad educativa,
+                                innovación en métodos de enseñanza y accesibilidad para los estudiantes y el público en
+                                general.
+                                Su objetivo es proporcionar herramientas lingüísticas que impulsen el desarrollo
+                                académico y profesional de los alumnos y participantes externos,
+                                promoviendo el dominio de una segunda lengua como parte fundamental de su formación y
+                                crecimiento personal.</p>
                         </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
                         <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
                         <div>
-                            <h4 class="title"><a href="service-details.html" class="stretched-link">Avalados por</a></h4>
-                            <p style="text-align: justify;" class="description">Una vez que concluyes los 10 niveles, tu constancia está avalada por
-                            el Marco Común Europeo de Referencia para las lenguas (MCER), con un nivel B1.</p>
+                            <h4 class="title"><a href="service-details.html" class="stretched-link">Avalados por</a>
+                            </h4>
+                            <p style="text-align: justify;" class="description">Una vez que concluyes los 10 niveles,
+                                tu constancia está avalada por
+                                el Marco Común Europeo de Referencia para las lenguas (MCER), con un nivel B1.</p>
                         </div>
                     </div><!-- End Service Item -->
-                    
+
                 </div>
 
             </div>
@@ -610,15 +720,15 @@
     <script src="assets/js/main.js"></script>
 
     @if (($Message = Session::get('mensaje')) && ($icono = Session::get('icono')))
-    <script>
-        Swal.fire({
-            position: "top",
-            icon: "{{ $icono }}",
-            title: "{{ $Message }}",
-            showConfirmButton: false,
-            timer: 4500
-        });
-    </script>
+        <script>
+            Swal.fire({
+                position: "top",
+                icon: "{{ $icono }}",
+                title: "{{ $Message }}",
+                showConfirmButton: false,
+                timer: 4500
+            });
+        </script>
     @endif
 
 </body>

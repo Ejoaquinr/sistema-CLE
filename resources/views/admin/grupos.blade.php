@@ -15,6 +15,13 @@
             @endforeach
         </div>
 
+
+        <script>
+            $(document).ready(function() {
+                $('#filtros-turno button[data-filter="*"]').trigger('click');
+            });
+        </script>
+
         <div class="row isotope">
             @foreach ($grupos as $turno => $niveles)
                 @foreach ($niveles as $nivel => $grupoPorNivel)
@@ -24,6 +31,14 @@
                                 <strong>{{ ucfirst($turno) }} - Nivel {{ $nivel }}</strong>
                             </div>
                             <div class="card-body table-responsive">
+                                <a href="{{ route('grupos.alumnos.create', ['turno' => $turno, 'nivel' => $nivel]) }}"
+                                    class="btn btn-success btn-sm mb-3">
+                                    + Agregar Alumno a {{ ucfirst($turno) }} - Nivel {{ $nivel }}
+                                </a>
+                                <a href="{{url('admin/pdf')}}" target="_blank" 
+                                    class="btn btn-danger btn-sm mb-3">
+                                    PDF LISTA
+                                </a>
                                 <table class="table table-bordered table-striped table-sm tabla-turno"
                                     id="tabla-{{ $turno }}-{{ $nivel }}">
                                     <thead class="table-danger">
@@ -34,6 +49,7 @@
                                             <th>No. Control</th>
                                             <th>Teléfono</th>
                                             <th>Folio</th>
+                                            <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -58,6 +74,18 @@
                                                                 class="btn btn-success btn-sm">Guardar</button>
                                                         </form>
                                                     @endif
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('grupos.edit', $grupo->id) }}"
+                                                        class="btn btn-warning btn-sm">Editar</a>
+                                                    <form action="{{ route('grupos.destroy', $grupo->id) }}" method="POST"
+                                                        style="display:inline-block;"
+                                                        onsubmit="return confirm('¿Eliminar alumno?');">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                            class="btn btn-danger btn-sm">Eliminar</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -200,6 +228,18 @@
                     });
                 @endforeach
             @endforeach
+
         });
     </script>
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: '¡Éxito!',
+                text: '{{ session('success') }}',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Aceptar'
+            });
+        </script>
+    @endif
 @endsection
