@@ -329,7 +329,7 @@
                                 <div class="row gy-4">
                                     <div class="col-md-6">
                                         <label for="name-field" class="pb-2">Correo Electronico*</label>
-                                        <input type="text" name="correo_electronico" id="correo"
+                                        <input type="email" name="correo_electronico" id="correo"
                                             class="form-control" required="">
                                         @error('correo_electronico')
                                             <small style="color:red">{{ $message }}</small>
@@ -354,12 +354,12 @@
 
                                     <div class="col-md-6">
                                         <label for="subject-field" class="pb-2">Numero de Control*</label>
-                                        <input type="text" class="form-control" name="no_control" required>
+                                        <input type="number" class="form-control" name="no_control" required>
                                     </div>
 
                                     <div class="col-md-6">
                                         <label for="subject-field" class="pb-2">Numero de Telefono*</label>
-                                        <input type="text" class="form-control" name="no_telefono" required>
+                                        <input type="number" class="form-control" name="no_telefono" required>
                                     </div>
 
                                     <div class="col-md-6">

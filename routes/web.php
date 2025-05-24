@@ -26,7 +26,7 @@ Route::get('/admin/resultados', [App\Http\Controllers\ResultadosController::clas
 Route::get('/admin/prelista', [App\Http\Controllers\PrelistaController::class, 'index'])->name('admin.prelista')->middleware('auth');
 
 Route::post('/admin', [App\Http\Controllers\ResultadosController::class, 'store'])
-    ->name('admin.store')->middleware('auth');
+    ->name('admin.store');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index')->middleware('auth');
 Route::get('/admin/toggle-form', [AdminController::class, 'toggleForm'])->name('admin.toggle-form')->middleware('auth');
