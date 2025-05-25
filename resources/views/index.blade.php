@@ -56,21 +56,21 @@
             <!-- <img src="assets/img/LOGO-CLE.png" alt=""> -->
             <h1 class="sitename">CLE ITI</h1>
         </a>
- 
+
         <div class="social-links text-center">
-        <a href="https://www.facebook.com/CLE.IGUALA?rdid=QSf90RtZhNfpjsfQ&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16DGKMpShi%2F#"
-            class="facebook"
-            target="_blank"> <i class="bi bi-facebook"></i>
-        </a>
+            <a href="https://www.facebook.com/CLE.IGUALA?rdid=QSf90RtZhNfpjsfQ&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16DGKMpShi%2F#"
+                class="facebook"
+                target="_blank"> <i class="bi bi-facebook"></i>
+            </a>
 
         </div>
 
         <nav id="navmenu" class="navmenu">
             <ul>
-                <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Inicio</a></li>
-                <li><a href="#about"><i class="bi bi-info-circle navicon"></i> Informacion</a></li>
-                <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> PreRegistro</a></li>
-                <li><a href="#portfolio"><i class="bi bi-journal-bookmark-fill navicon"></i> Material Didactico</a></li>
+                <li><a href="#inicio" class="active"><i class="bi bi-house navicon"></i>Inicio</a></li>
+                <li><a href="#informacion"><i class="bi bi-info-circle navicon"></i> Informacion</a></li>
+                <li><a href="#preregistro"><i class="bi bi-file-earmark-text navicon"></i> PreRegistro</a></li>
+                <li><a href="#materialdidactico"><i class="bi bi-journal-bookmark-fill navicon"></i> Material Didactico</a></li>
                 <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Acerca de</a></li>
                 <li><a href="#contact"><i class="bi bi-telephone-forward navicon"></i> Contacto</a></li>
                 <li>
@@ -106,7 +106,7 @@
         </div>
 
         <!-- Hero Section -->
-        <section id="hero" class="hero section dark-background">
+        <section id="inicio" class="hero section dark-background">
             <img src="assets/img/portada2.jpeg" alt="" data-aos="fade-in" style="opacity: 0.50;">
 
             <!-- Contenido principal del Hero -->
@@ -119,9 +119,8 @@
 
 
         <!-- About Section -->
-        <section id="about" class="about section light-background">
-
-            <!--<section id="horarios" class="section">-->
+        <!-- About Section -->
+        <section id="informacion" class="about section light-background">
             <div class="container" data-aos="fade-up">
                 <div class="row justify-content-center text-center mb-4">
                     <div class="col-lg-8">
@@ -129,298 +128,225 @@
                     </div>
                 </div>
 
-                <div class="table-responsive shadow-sm rounded">
-                    <table class="table table-bordered text-center align-middle">
-                        <thead class="table-light fw-bold">
-                            <tr>
-                                <th class="bg-primary text-white">Grupo</th>
-                                <th class="bg-primary text-white">Horario</th>
-                                <th class="bg-primary text-white">Aula</th>
-                                <th class="bg-primary text-white">Profesor</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>3A</td>
-                                <td>1:00pm - 2:30pm</td>
-                                <td>E4</td>
-                                <td>Lic. Héctor Almazán Ángeles</td>
-                            </tr>
-                            <tr>
-                                <td>3B</td>
-                                <td>11:00am - 12:00pm</td>
-                                <td>E12</td>
-                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
-                            </tr>
-                            <tr>
-                                <td>3C</td>
-                                <td>2:30pm - 4:00pm</td>
-                                <td>E2</td>
-                                <td>Lic. Jesús Flores Figueroa</td>
-                            </tr>
-                            <tr>
-                                <td>3D</td>
-                                <td>10:00am - 11:00am</td>
-                                <td>A8</td>
-                                <td>Lic. Alan Román Castro</td>
-                            </tr>
-                            <tr>
-                                <td>3E</td>
-                                <td>8:00am - 3:00pm (Sabatino)</td>
-                                <td>A4</td>
-                                <td>Lic. Jesús Flores Figueroa</td>
-                            </tr>
-                            <tr>
-                                <td>3F</td>
-                                <td>1:00pm - 2:30pm</td>
-                                <td>E2</td>
-                                <td>Lic. Jesús Flores Figueroa</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>8:00am - 3:00pm (Sabatino)</td>
-                                <td>A2</td>
-                                <td>Lic. Miguel Ángel Ávila González</td>
-                            </tr>
-                            <tr>
-                                <td>4A</td>
-                                <td>10:00am - 11:00am</td>
-                                <td>E6</td>
-                                <td>Lic. Héctor Almazán Ángeles</td>
-                            </tr>
-                            <tr>
-                                <td>4B</td>
-                                <td>8:00am - 3:00pm (Sabatino)</td>
-                                <td>A7</td>
-                                <td>Lic. Nelly Salgado Jardón</td>
-                            </tr>
-                            <tr>
-                                <td>5B</td>
-                                <td>8:00am - 3:00pm (Sabatino)</td>
-                                <td>A1</td>
-                                <td>Lic. Diana Salgado Martínez</td>
-                            </tr>
-                            <tr>
-                                <td>7A</td>
-                                <td>1:00pm - 2:30pm</td>
-                                <td>E12</td>
-                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
-                            </tr>
-                            <tr>
-                                <td>7C</td>
-                                <td>2:30pm - 4:00pm</td>
-                                <td>E12</td>
-                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
-                            </tr>
-                            <tr>
-                                <td>7D</td>
-                                <td>10:00am - 11:00am</td>
-                                <td>E12</td>
-                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
-                            </tr>
-                            <tr>
-                                <td>7E</td>
-                                <td>8:00am - 3:00pm (Sabatino)</td>
-                                <td>A6</td>
-                                <td>Lic. Héctor Almazán Ángeles</td>
-                            </tr>
-                            <tr>
-                                <td>7F</td>
-                                <td>8:00am - 3:00pm (Sabatino)</td>
-                                <td>A5</td>
-                                <td>Lic. María Magdalena García Roa</td>
-                            </tr>
-                            <tr>
-                                <td>9B</td>
-                                <td>8:00am - 3:00pm (Sabatino)</td>
-                                <td>A3</td>
-                                <td>Lic. Ana Fabiola Martínez Cervantes</td>
-                            </tr>
-                            <tr>
-                                <td>10A</td>
-                                <td>2:30pm - 4:00pm</td>
-                                <td>E4</td>
-                                <td>Lic. Héctor Almazán Ángeles</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Tabla de profesores -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h3 class="fw-bold text-center mb-3" style="color: #1da1f2;">Cuerpo de Profesores</h3>
+                        <div class="table-responsive">
+                            <table class="table border border-primary rounded">
+                                <thead class="bg-dark text-light">
+                                    <tr>
+                                        <th>Nombre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="bg-white text-primary">Lic. Héctor Almazán Ángeles</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bg-white text-primary">Lic. Ana Fabiola Martínez Cervantes</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bg-white text-primary">Lic. Jesús Flores Figueroa</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bg-white text-primary">Lic. Alan Román Castro</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bg-white text-primary">Lic. Miguel Ángel Ávila González</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bg-white text-primary">Lic. Nelly Salgado Jardón</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bg-white text-primary">Lic. Diana Salgado Martínez</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="bg-white text-primary">Lic. María Magdalena García Roa</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
 
+
+
         <!-- Pre-Registro Section -->
         @php
-            $form_enabled = \App\Models\Setting::getValue('form_enabled', '0');
+        $form_enabled = \App\Models\Setting::getValue('form_enabled', '0');
         @endphp
 
-        <section id="resume" class="resume section">
+        <section id="preregistro" class="resume section">
             @if ($form_enabled == '1')
-                <!--Esto es para la advertencia en la vista del pre-r.  -->
-                @if ($errors->any())
-                    <div class="alert alert-warning">
-                        <strong>Atención:</strong> Por favor completa todos los campos obligatorios.
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
+            <!--Esto es para la advertencia en la vista del pre-r.  -->
+            @if ($errors->any())
+            <div class="alert alert-warning">
+                <strong>Atención:</strong> Por favor completa todos los campos obligatorios.
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
 
-                @if (session('mensaje') && !$errors->any())
-                    <div class="alert alert-success">
-                        {{ session('mensaje') }}
-                    </div>
-                @endif
+            @if (session('mensaje') && !$errors->any())
+            <div class="alert alert-success">
+                {{ session('mensaje') }}
+            </div>
+            @endif
 
-                <!-- SweetAlert2 de error para volver a la vista del pre-r. -->
-                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <!-- SweetAlert2 de error para volver a la vista del pre-r. -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-                @if ($errors->any())
-                    <script>
-                        Swal.fire({
-                            icon: 'warning',
-                            title: 'Faltan campos por llenar',
-                            html: `
+            @if ($errors->any())
+            <script>
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Faltan campos por llenar',
+                    html: `
                         <ul style="text-align:left;">
                             @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
                             @endforeach
                         </ul>
                     `,
-                            confirmButtonText: 'Volver a completar',
-                        });
-                    </script>
-                @endif
+                    confirmButtonText: 'Volver a completar',
+                });
+            </script>
+            @endif
 
-                @if (session('mensaje'))
-                    <script>
-                        Swal.fire({
-                            icon: "{{ session('icono', 'success') }}",
-                            title: "{{ session('mensaje') }}",
-                            confirmButtonText: 'Aceptar',
-                        });
-                    </script>
-                @endif
+            @if (session('mensaje'))
+            <script>
+                Swal.fire({
+                    icon: "{{ session('icono', 'success') }}",
+                    title: "{{ session('mensaje') }}",
+                    confirmButtonText: 'Aceptar',
+                });
+            </script>
+            @endif
 
 
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>PRE- REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA </h2>
-                    <p class="mb-2">
-                        El presente formulario es para realizar el <strong>pre-registro</strong> a los cursos de inglés.
-                        <span class="text-red-600 font-semibold">Este pre-registro no equivale a la inscripción
-                            oficial.</span>
-                        Su finalidad es recopilar datos para asignar horarios y días disponibles.
-                    </p>
-                    <p>
-                        Asegúrate de llenar todos los campos obligatorios marcados con un asterisco (*).
-                        Posteriormente se te contactará por medio del correo institucional para confirmar tu
-                        inscripción.
-                    </p>
-                </div><!-- End Section Title -->
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>PRE- REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA </h2>
+                <p class="mb-2">
+                    El presente formulario es para realizar el <strong>pre-registro</strong> a los cursos de inglés.
+                    <span class="text-red-600 font-semibold">Este pre-registro no equivale a la inscripción
+                        oficial.</span>
+                    Su finalidad es recopilar datos para asignar horarios y días disponibles.
+                </p>
+                <p>
+                    Asegúrate de llenar todos los campos obligatorios marcados con un asterisco (*).
+                    Posteriormente se te contactará por medio del correo institucional para confirmar tu
+                    inscripción.
+                </p>
+            </div><!-- End Section Title -->
 
-                <div class="container">
+            <div class="container">
 
-                    <div class="row">
+                <div class="row">
 
-                        <div class="col-lg-12">
-                            <form action="{{ url('/admin') }}" method="POST" data-aos="fade-up"
-                                data-aos-delay="200">
-                                @csrf
-                                <div class="row gy-4">
-                                    <div class="col-md-6">
-                                        <label for="name-field" class="pb-2">Correo Electronico*</label>
-                                        <input type="email" name="correo_electronico" id="correo"
-                                            class="form-control" required="">
-                                        @error('correo_electronico')
-                                            <small style="color:red">{{ $message }}</small>
-                                        @enderror
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="email-field" class="pb-2">Correo institucional*</label>
-                                        <input type="email" class="form-control" name="correo_institucional"
-                                            required>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="subject-field" class="pb-2">Nombre(s)*</label>
-                                        <input type="text" class="form-control" name="nombres" required>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="subject-field" class="pb-2">Apellido(s)*</label>
-                                        <input type="text" class="form-control" name="apellidos" required>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="subject-field" class="pb-2">Numero de Control*</label>
-                                        <input type="number" class="form-control" name="no_control" required>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="subject-field" class="pb-2">Numero de Telefono*</label>
-                                        <input type="number" class="form-control" name="no_telefono" required>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="subject-field" class="form-label">Selecciona tu carrera *</label>
-                                        <select name="carrera" class="form-select" required>
-                                            <option disabled selected>Selecciona una carrera</option>
-                                            <option>Ingeniería en Gestión Empresarial</option>
-                                            <option>Ingeniería en Sistemas Computacionales</option>
-                                            <option>Ingeniería Industrial</option>
-                                            <option>Contador Público</option>
-                                            <option>Ingeniería en Informática</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label for="subject-field" class="pb-2">Nivel a ingresar *</label> <br>
-                                        <select name="nivel" class="form-select" required>
-                                            <option disabled selected>Selecciona un nivel</option>
-                                            <option>Primero</option>
-                                            <option>Segundo</option>
-                                            <option>Tercero</option>
-                                            <option>Cuarto</option>
-                                            <option>Quinto</option>
-                                            <option>Sexto</option>
-                                            <option>Séptimo</option>
-                                            <option>Octavo</option>
-                                            <option>Noveno</option>
-                                            <option>Décimo</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="subject-field" class="form-label">Turno Preferible*</label>
-                                        <select name="turno" class="form-select" required>
-                                            <option disabled selected>Selecciona el Turno</option>
-                                            <option>Matutino</option>
-                                            <option>Vespertino</option>
-                                            <option>Sabatino</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-12 text-center">
-                                        <button type="submit" class="btn btn-primary">Enviar</button>
-                                    </div>
+                    <div class="col-lg-12">
+                        <form action="{{ url('/admin') }}" method="POST" data-aos="fade-up"
+                            data-aos-delay="200">
+                            @csrf
+                            <div class="row gy-4">
+                                <div class="col-md-6">
+                                    <label for="name-field" class="pb-2">Correo Electronico*</label>
+                                    <input type="email" name="correo_electronico" id="correo"
+                                        class="form-control" required="">
+                                    @error('correo_electronico')
+                                    <small style="color:red">{{ $message }}</small>
+                                    @enderror
                                 </div>
-                            </form>
-                        </div><!-- End Contact Form -->
-                    </div>
+
+                                <div class="col-md-6">
+                                    <label for="email-field" class="pb-2">Correo institucional*</label>
+                                    <input type="email" class="form-control" name="correo_institucional"
+                                        required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="subject-field" class="pb-2">Nombre(s)*</label>
+                                    <input type="text" class="form-control" name="nombres" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="subject-field" class="pb-2">Apellido(s)*</label>
+                                    <input type="text" class="form-control" name="apellidos" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="subject-field" class="pb-2">Numero de Control*</label>
+                                    <input type="number" class="form-control" name="no_control" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="subject-field" class="pb-2">Numero de Telefono*</label>
+                                    <input type="number" class="form-control" name="no_telefono" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="subject-field" class="form-label">Selecciona tu carrera *</label>
+                                    <select name="carrera" class="form-select" required>
+                                        <option disabled selected>Selecciona una carrera</option>
+                                        <option>Ingeniería en Gestión Empresarial</option>
+                                        <option>Ingeniería en Sistemas Computacionales</option>
+                                        <option>Ingeniería Industrial</option>
+                                        <option>Contador Público</option>
+                                        <option>Ingeniería en Informática</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="subject-field" class="pb-2">Nivel a ingresar *</label> <br>
+                                    <select name="nivel" class="form-select" required>
+                                        <option disabled selected>Selecciona un nivel</option>
+                                        <option>Primero</option>
+                                        <option>Segundo</option>
+                                        <option>Tercero</option>
+                                        <option>Cuarto</option>
+                                        <option>Quinto</option>
+                                        <option>Sexto</option>
+                                        <option>Séptimo</option>
+                                        <option>Octavo</option>
+                                        <option>Noveno</option>
+                                        <option>Décimo</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="subject-field" class="form-label">Turno Preferible*</label>
+                                    <select name="turno" class="form-select" required>
+                                        <option disabled selected>Selecciona el Turno</option>
+                                        <option>Matutino</option>
+                                        <option>Vespertino</option>
+                                        <option>Sabatino</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!-- End Contact Form -->
                 </div>
+            </div>
             @else
-                <!-- Section Title cuando el formulario está deshabilitado -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>PRE-REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA</h2>
-                    <div class="alert alert-info text-center" role="alert">
-                        <p class="mb-0 text-lg">
-                            <i class="bi bi-info-circle me-2"></i>
-                            El periodo de pre-registro no está disponible en este momento. Por favor, vuelve más tarde.
-                        </p>
-                    </div>
+            <!-- Section Title cuando el formulario está deshabilitado -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>PRE-REGISTRO A LOS CURSOS DE INGLÉS DEL TECNM CAMPUS IGUALA</h2>
+                <div class="alert alert-info text-center" role="alert">
+                    <p class="mb-0 text-lg">
+                        <i class="bi bi-info-circle me-2"></i>
+                        El periodo de pre-registro no está disponible en este momento. Por favor, vuelve más tarde.
+                    </p>
                 </div>
+            </div>
             @endif
         </section><!-- /Pre-Registro Section -->
 
@@ -428,7 +354,7 @@
         </section><!-- /Pre-Registro Section -->
 
         <!-- Material Didáctico Section -->
-        <section id="portfolio" class="portfolio section light-background">
+        <section id="materialdidactico" class="portfolio section light-background">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -559,7 +485,7 @@
         </section><!-- /Material Section -->
 
         <!-- Services Section -->
-        <section id="services" class="services section">
+        <section id="acercade" class="services section">
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
@@ -631,7 +557,7 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Contacto</h2>
-                <p>Ponte en contacto con nosotros para obtener más información.</p>
+                <p>Visítanos en nuestras oficinas para mayor información.</p>
             </div><!-- End Section Title -->
 
             <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -643,23 +569,23 @@
                                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
                                     <h3>Address</h3>
-                                    <p>A108 Adam Street, New York, NY 535022</p>
+                                    <p>Carretera Nacional Iguala - Taxco, Perif. Nte. Esquina, Adolfo Lopez Mateos, Iguala de la Independencia, Gro.</p>
                                 </div>
                             </div>
                             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                                 <i class="bi bi-telephone flex-shrink-0"></i>
                                 <div>
-                                    <h3>Call Us</h3>
-                                    <p>+1 5589 55488 55</p>
+                                    <h3>Where to find us</h3>
+                                    <p>Edificio I, dentro del TecNM Campus Iguala</p>
                                 </div>
                             </div>
-                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+                            <!-- <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                                 <i class="bi bi-envelope flex-shrink-0"></i>
                                 <div>
                                     <h3>Email Us</h3>
                                     <p>info@example.com</p>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <!-- Columna derecha: el mapa -->
@@ -683,7 +609,7 @@
 
         <div class="container">
             <div class="copyright text-center ">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights
+                <p>© <span>Copyright 2KGED Team</span> <strong class="px-1 sitename">Sistema CLE</strong> <span>All Rights
                         Reserved</span></p>
             </div>
             <div class="credits">
@@ -720,15 +646,15 @@
     <script src="assets/js/main.js"></script>
 
     @if (($Message = Session::get('mensaje')) && ($icono = Session::get('icono')))
-        <script>
-            Swal.fire({
-                position: "top",
-                icon: "{{ $icono }}",
-                title: "{{ $Message }}",
-                showConfirmButton: false,
-                timer: 4500
-            });
-        </script>
+    <script>
+        Swal.fire({
+            position: "top",
+            icon: "{{ $icono }}",
+            title: "{{ $Message }}",
+            showConfirmButton: false,
+            timer: 4500
+        });
+    </script>
     @endif
 
 </body>
