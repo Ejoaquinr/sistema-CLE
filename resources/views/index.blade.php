@@ -71,7 +71,7 @@
                 <li><a href="#informacion"><i class="bi bi-info-circle navicon"></i> Informacion</a></li>
                 <li><a href="#preregistro"><i class="bi bi-file-earmark-text navicon"></i> PreRegistro</a></li>
                 <li><a href="#materialdidactico"><i class="bi bi-journal-bookmark-fill navicon"></i> Material Didactico</a></li>
-                <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Acerca de</a></li>
+                <li><a href="#acercade"><i class="bi bi-hdd-stack navicon"></i> Acerca de</a></li>
                 <li><a href="#contact"><i class="bi bi-telephone-forward navicon"></i> Contacto</a></li>
                 <li>
                     <a href="{{ Auth::check() ? route('admin.index') : route('login') }}">
@@ -112,7 +112,7 @@
             <!-- Contenido principal del Hero -->
             <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <h2>Coordinación de Lenguas Extranjeras</h2>
-                <p><span class="typed" data-typed-items="CLE IGUALA">Designer</span><span
+                <p><span class="typed" data-typed-items="CLE ITIGUALA">CLE</span><span
                         class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
             </div>
         </section>
@@ -121,54 +121,89 @@
         <!-- About Section -->
         <!-- About Section -->
         <section id="informacion" class="about section light-background">
-            <div class="container" data-aos="fade-up">
-                <div class="row justify-content-center text-center mb-4">
-                    <div class="col-lg-8">
-                        <h2 class="fw-bold">Información sobre horarios y grupos de los cursos de inglés</h2>
-                    </div>
-                </div>
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Información sobre cursos, profesores y horarios.</h2>
 
-                <!-- Tabla de profesores -->
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <h3 class="fw-bold text-center mb-3" style="color: #1da1f2;">Cuerpo de Profesores</h3>
-                        <div class="table-responsive">
-                            <table class="table border border-primary rounded">
-                                <thead class="bg-dark text-light">
-                                    <tr>
-                                        <th>Nombre</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="bg-white text-primary">Lic. Héctor Almazán Ángeles</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg-white text-primary">Lic. Ana Fabiola Martínez Cervantes</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg-white text-primary">Lic. Jesús Flores Figueroa</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg-white text-primary">Lic. Alan Román Castro</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg-white text-primary">Lic. Miguel Ángel Ávila González</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg-white text-primary">Lic. Nelly Salgado Jardón</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg-white text-primary">Lic. Diana Salgado Martínez</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="bg-white text-primary">Lic. María Magdalena García Roa</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+            </div><!-- End Section Title -->
+
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon flex-shrink-0"><i class="bi bi-bookmark-fill"></i></div>
+                        <div>
+                            <h4 class="title"><a href="service-details.html" class="stretched-link">Sobre el idioma</a>
+                            </h4>
+                            <p style="text-align: justify;" class="description">La Coordinación de Lenguas Extranjeras y
+                                Maternas cuenta con un programa de 10 niveles. Como requisito de titulación es necesario
+                                completar los mismos y presentar la constancia final que hace constar que cuentas con un
+                                nivel B1 en el idioma Inglés.
+                            </p>
                         </div>
                     </div>
+                    <!-- End Service Item -->
+
+                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon flex-shrink-0">
+                            <i class="bi bi-person-badge"></i>
+                        </div>
+                        <div>
+                            <h4 class="title">Cuerpo de Profesores</h4>
+                            <div class="table-responsive">
+                                <table class="table border border-primary rounded">
+                                    <thead class="bg-dark text-light">
+                                        <tr>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="bg-white text-primary">Lic. Héctor Almazán Ángeles</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-white text-primary">Lic. Ana Fabiola Martínez Cervantes</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-white text-primary">Lic. Jesús Flores Figueroa</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-white text-primary">Lic. Alan Román Castro</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-white text-primary">Lic. Miguel Ángel Ávila González</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-white text-primary">Lic. Nelly Salgado Jardón</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-white text-primary">Lic. Diana Salgado Martínez</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-white text-primary">Lic. María Magdalena García Roa</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
+                        <div>
+                            <h4 class="title"><a href="service-details.html" class="stretched-link">Horarios disponibles</a></h4>
+                            <ul class="description" style="padding-left: 1rem;">
+                                <li><strong>Entre semana:</strong> clases de hora y media diarias, de lunes a viernes. Existen distintos horarios para que encuentres el que mejor se adapte a tu carga académica.</li>
+                                <li><strong>Sabatino:</strong> horario único de 8:00 a.m. a 3:00 p.m.</li>
+                                <li>Ambas opciones están sujetas a la demanda por nivel. ¡Realiza el pre-registro!</li>
+                            </ul>
+                        </div>
+                    </div>
+
+
                 </div>
+
             </div>
         </section>
 
