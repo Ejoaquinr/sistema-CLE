@@ -140,6 +140,10 @@
                                 completar los mismos y presentar la constancia final que hace constar que cuentas con un
                                 nivel B1 en el idioma Inglés.
                             </p>
+                            <p style="text-align: justify;" class="description">
+                                Una vez confirmados los grupos abiertos en la página de Facebook, dirígete a Servicios Financieros
+                                para realizar el pago del nivel. Consulta los montos en nuestra oficina.
+                            </p>
                         </div>
                     </div>
                     <!-- End Service Item -->
